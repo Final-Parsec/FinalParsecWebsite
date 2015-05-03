@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - {{ category }}{% endblock %}
+{% block content %}
+<body class="no-sidebar">
+    {% include 'header.html' %}
+
+    <!-- Main -->
+    <div id="main-wrapper">
+
+        {% if category == 'Nauticus' %}
+            {% include 'games/nauticus.html' %}
+        {% elif category == 'Space Snakes: Prototype' %}
+            {% include 'games/space_snakes_prototype.html' %}
+        {% elif category == 'Space Snakes: Legacy Earth' %}
+            {% include 'games/space_snakes_legacy_earth.html' %}
+        {% elif category == 'Tower Defense' %}
+            {% include 'games/tower_defense.html' %}
+        {% elif category == 'Unity Masters' %}
+            {% include 'games/unity_masters.html' %}
+        {% endif %}
+
+
+    </div>
+
+    <!-- Footer -->
+        <div id="footer-wrapper">
+            <section id="footer" class="container">
+                <div class="row">
+                    <div class="8u">
+                        <section>
+                            <header>
+                                <h2>Articles about {{ category }}</h2>
+                            </header>
+                            <ul class="dates">
+                                {% for article in articles_page.object_list %}
+                                    {% if loop.index < 6 %}
+                                        <li>
+                                            <span class="date">{{ article.date.strftime('%b') }} <strong>{{ article.date.strftime('%d') }}</strong></span>
+                                            <h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h3>
+                                            <p>{{ article.summary }}</p>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </section>
+                    </div>
+                    {% include 'about.html' %}
+                </div>
+
+                {% include 'copyright_row.html' %}
+            </section>
+        </div>
+
+</body>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Final Parsec</title><link href="/" rel="alternate"></link><link href="/feeds%5Cbaer.atom.xml" rel="self"></link><id>/</id><updated>2015-02-23T00:00:00-06:00</updated><entry><title>Caching and Apache</title><link href="/caching-and-apache.html" rel="alternate"></link><updated>2015-02-23T00:00:00-06:00</updated><author><name>Baer</name></author><id>tag:,2015-02-23:caching-and-apache.html</id><summary type="html">&lt;p&gt;As you may or may not have noticed, our website is entirely comprised of static files.
+We do this despite the fact that our site has a large amount of somewhat dynamic content (for instance, the blog you're reading right now).
+This is accomplished by using a static site generator (&lt;a href="http://docs.getpelican.com/"&gt;Pelican&lt;/a&gt;) and letting Apache serve the output straight off the file system.
+The primary benefits include:
+&lt;ul class=default&gt;
+    &lt;li&gt;Tracking changes and entire history of the site is as easy as keeping it under version control.&lt;/li&gt; 
+    &lt;li&gt;No server side scripting or processing to speak of.&lt;/li&gt;
+    &lt;li&gt;We don't need to query a database.&lt;/li&gt;
+&lt;/ul&gt;
+These last two help cut down on the response time when a user requests content which is vitally important.&lt;/p&gt;
+&lt;p&gt;One side effect of taking this approach is that browsers can pretty aggressively cache the resources that compose your site.
+This can either be a really good or really bad thing depending on the nature of your site.
+Browsers caching your content can result in very quick render times, but users may be looking at stale content.
+As I mention earlier in the article, our site changes frequently as we update it with new posts and such.
+This means a user seeing stale content is a problem for us.&lt;/p&gt;
+&lt;p&gt;There are several ways you can tell a browser to avoid caching (or at least check for an updated version) primarily through the use of HTTP headers.
+The header we're going to be interested in is the &lt;strong&gt;cache-control&lt;/strong&gt; header.
+A few others headers exist to manipulate caching behavior. If you want to dive into more information, &lt;a href="http://www.mobify.com/blog/beginners-guide-to-http-cache-headers/"&gt;take a look at this blog post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We can use the Apache module &lt;a href="http://httpd.apache.org/docs/2.2/mod/mod_expires.html"&gt;mod_expires&lt;/a&gt; to manipulate this header.&lt;/p&gt;
+&lt;p&gt;Prior to enabling this module, you'll want to add rules to your virtual host file (you can also put this configuration information in &lt;strong&gt;.htaccess&lt;/strong&gt;).
+Our rules allow clients to cache content for 1 month with the exception of &lt;strong&gt;html&lt;/strong&gt; files.
+These expire immediately requiring the browser to check with our server before using a cached version of the content.
+Using this strategy, we get the benefits of caching where it matters (larger files like images and frequently requested files like CSS) while getting the guarantee users will always see fresh content.&lt;/p&gt;
+&lt;pre class='apply-line-numbers'&gt;&lt;code class='hljs apache'&gt;&amp;lt;IfModule mod_expires.c&amp;gt;
+    ExpiresActive on
+    ExpiresDefault          "access plus 1 month"
+
+    ExpiresByType text/html "access plus 0 seconds"
+&amp;lt;/IfModule&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you've modified your configuration, enable the mod_expires module.
+&lt;pre class='apply-line-numbers'&gt;&lt;code class='hljs bash'&gt;&lt;/code&gt;sudo a2enmod expires&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;Then restart apache to ensure your changes take effect.
+&lt;pre class='apply-line-numbers'&gt;&lt;code class='hljs bash'&gt;&lt;/code&gt;sudo service apache2 restart&lt;/pre&gt;&lt;/p&gt;</summary><category term="web-dev"></category><category term="tutorial"></category><category term="apache"></category><category term="cache"></category></entry><entry><title>Aurora TD Released on Web and Android Devices!</title><link href="/tower-defense-release.html" rel="alternate"></link><updated>2014-12-22T00:00:00-06:00</updated><author><name>Baer</name></author><id>tag:,2014-12-22:tower-defense-release.html</id><summary type="html">&lt;p&gt;
+    Aurora Tower Defense has just been released for PC, Mac, and Android devices.
+&lt;/p&gt;
+
+&lt;p style='font-weight: bold;'&gt;
+    Aurora TD costs $2.49 on Android, but you can play the full featured game for free online.
+&lt;/p&gt;
+
+&lt;p style='font-weight: bold;'&gt;
+    Just head over to &lt;a href="/category/tower-defense.html"&gt;the Aurora TD category&lt;/a&gt; and play right in your web browser!
+&lt;/p&gt;
+
+&lt;p&gt;
+    You are an Inuit shaman sworn to protect Tomkin, the home of the spirits.
+    Tonrar, the evil spirit, is attempting to bring darkness to the ice caps.
+    You must repel his forces by building totems, magical defenses which are empowered by the elements.
+    As the evil forces grow in strength and numbers, darkness will overtake the northern lights.
+    Fight back by strategically placing totem poles with magical abilities!
+    Invoke the power of the spirits!
+    Salaksartok! 
+&lt;/p&gt;
+
+&lt;h3&gt;Aurora TD is an isometric tower defense game involving strategy and quick wit.&lt;/h3&gt;
+
+&lt;p&gt;
+    Watch our trailer below to get an idea of how the game works.
+&lt;/p&gt;
+
+&lt;div class="video-container"&gt;
+    &lt;iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/Mq6VLoGR-gY?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</summary><category term="tower-defense"></category><category term="unity"></category><category term="android"></category></entry><entry><title>Enemy Detection and Firing</title><link href="/tower-defense-enemy-detection-and-firing.html" rel="alternate"></link><updated>2014-11-23T00:00:00-06:00</updated><author><name>Baer</name></author><id>tag:,2014-11-23:tower-defense-enemy-detection-and-firing.html</id><summary type="html">&lt;p&gt;
+    Learn how to make turrets detect enemies and shoot projectiles at them.
+    A continuation of the tower defense tutorial series.
+&lt;/p&gt;
+
+&lt;h3&gt;Setting Up Your Turret GameObject&lt;/h3&gt;
+
+&lt;p&gt;
+    Go ahead and get started by creating a Sprite in your hierarchy.
+&lt;/p&gt;
+
+&lt;p&gt;
+    This should create a new &lt;a href="http://docs.unity3d.com/Manual/class-GameObject.html" target="_blank"&gt;GameObject&lt;/a&gt; 
+    with the &lt;a href="http://docs.unity3d.com/Manual/class-Transform.html" target="_blank"&gt;Transform&lt;/a&gt; and 
+    &lt;a href="http://docs.unity3d.com/Manual/class-SpriteRenderer.html" target="_blank"&gt;Sprite Renderer&lt;/a&gt; components        
+&lt;/p&gt;
+
+&lt;p&gt;  
+    Don't worry too much about changing the position; we're going to be setting that programmatically when the player tries to place a turret on the map.
+    Do, however, add some cool art to the Sprite property of your renderer.
+&lt;/p&gt;
+
+&lt;p&gt;
+    &lt;span class="caption"&gt;This is what we're using for our Earth Type Turrets. Maybe one day we'll hire an artist...&lt;/span&gt;
+    &lt;img src="/theme/images/tower_defense_enemy_detection_and_firing_earth_turret_art.png"&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+    Attach a MonoBehavior script and call it &lt;span style='font-weight: bold;'&gt;Turret.cs&lt;/span&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+    Attach a &lt;a href="http://docs.unity3d.com/Manual/class-SphereCollider.html" target="_blank"&gt;Sphere Collider&lt;/a&gt; too.
+    Make sure the &lt;span style='font-weight: bold;'&gt;Is Trigger&lt;/span&gt; property is checked.
+    Don't worry about changing values for &lt;span style='font-weight: bold;'&gt;Center&lt;/span&gt; and &lt;span style='font-weight: bold;'&gt;Radius&lt;/span&gt;
+    as we'll be changing these programmatically.
+&lt;/p&gt;
+
+&lt;p&gt;
+
+    &lt;img src="/theme/images/tower_defense_enemy_detection_and_firing_earth_turret_components.png"&gt;
+    &lt;span class="caption"&gt;Your GameObject's components should look something like this.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+    Go ahead and create a prefab by dragging the turret from your scene to a directory in the project tab.
+    Having our turrets as prefabs will give the benefit of being able to instantiate them from code.
+    We can even create multiple prefabs which will allow for different turret types, each with their own stats, special abilities, and artwork.
+&lt;/p&gt;
+
+&lt;h3&gt;Writing the Scripts&lt;/h3&gt;
+
+&lt;p&gt;
+    Open up the &lt;span style='font-weight: bold;'&gt;Turret.cs&lt;/span&gt; attached to your prefab. It should look something like this:
+&lt;/p&gt;
+
+&lt;pre class='apply-line-numbers'&gt;&lt;code class='hljs cs'&gt;using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Turret : MonoBehaviour
+{
+
+    // Use this for initialization
+    void Start () {
+
+    }
+
+    // Update is called once per frame
+    void Update () {
+
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;span class="caption"&gt;Take note I've added a couple &lt;span class='hljs-keyword'&gt;using&lt;/span&gt; statements.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;
+    Let's add some fields and properties. Keep in mind the public fields will be accessible in Unity's inspector panel. 
+    &lt;span style='font-weight: bold;'&gt;damage&lt;/span&gt;, &lt;span style='font-weight: bold;'&gt;range&lt;/span&gt;, and &lt;span style='font-weight: bold;'&gt;rateOfFire&lt;/span&gt; are all meant to adjusted there on a 0-10 scale.
+    The associated properties &lt;span style='font-weight: bold;'&gt;AttackDelay&lt;/span&gt; and &lt;span style='font-weight: bold;'&gt;DetectionRadius&lt;/span&gt; scale those values to based on the size of the map.
+    &lt;span style='font-weight: bold;'&gt;DetectionRadius&lt;/span&gt; also takes responsibility for changing the size of the attached sphere collider. 
+&lt;/p&gt;
+
+&lt;pre class='apply-line-numbers'&gt;&lt;code class='hljs cs'&gt;// Configurable
+public float accuracyError = 2.0f;
+public int damage = 10;
+public GameObject projectileType;
+public int range = 5;
+public int rateOfFire = 5;
+
+// Constants
+private const float MinAttackDelay = 0.1f;
+private const float MaxAttackDelay = 2f;
+
+// Internal
+private List&lt;EnemyBase&gt; myTargets;
+private float nextDamageEvent;
+private ObjectManager objectManager;    
+private static readonly object syncRoot = new object ();
+
+// Properties
+private float AttackDelay
+{
+    get 
+    {
+        int inverted = rateOfFire;
+        if (rateOfFire == 0) 
+        { 
+            return float.MaxValue;
+        }
+        else if (rateOfFire &lt; 5)
+        {
+            inverted = rateOfFire + 2 * (5 - rateOfFire);
+        }
+        else if (rateOfFire &gt; 5) 
+        {
+            inverted = rateOfFire - 2 * (rateOfFire - 5);
+        }
+
+        return (((float)inverted - 1f) / (10f - 1f)) * (MaxAttackDelay - MinAttackDelay) + .1f;
+    }
+}
+
+public float DetectionRadius
+{ 
+    get 
+    {   
+        float minRange = Mathf.Min(objectManager.Map.nodeSize.x, objectManager.Map.nodeSize.y) * 1.5f;
+        float maxRange = minRange * 4f;
+
+        float detectionRadius = (((float)range - 1f) / (10f - 1f)) * (maxRange - minRange) + minRange;
+        detectionRadius = detectionRadius / transform.localScale.x;
+
+        return detectionRadius;
+    }
+    set 
+    {
+        float minRange = Mathf.Min(objectManager.Map.nodeSize.x, objectManager.Map.nodeSize.y) * 1.5f;
+        float maxRange = minRange * 4f;
+
+        float detectionRadius = (((float)value - 1f) / (10f - 1f)) * (maxRange - minRange) + minRange;
+        detectionRadius = detectionRadius / transform.localScale.x;
+
+        SphereCollider collider = transform.GetComponent&lt;SphereCollider&gt; ();
+        collider.radius = detectionRadius;
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+    Here we initialize some of those private fields.
+    &lt;span style='font-weight: bold;'&gt;objectManager&lt;/span&gt; is just a singleton we are using to help maintain game state.
+    Matt talks more in-depth about it in some of the earlier videos from the &lt;a href="/tag/td-video-series.html"&gt;Tower Defense Tutorial Video Series&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;pre class='apply-line-numbers'&gt;&lt;code class='hljs cs'&gt;// Runs when entity is Instantiated
+void Awake()
+{
+    objectManager = ObjectManager.GetInstance();
+    objectManager.AddEntity(this);
+}
+
+// Use this for initialization
+void Start ()
+{
+    DetectionRadius = range;
+    myTargets = new List&lt;EnemyBase&gt;();
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+    These two methods track when enemies enter and exit the attached sphere collider.
+    At any given time, &lt;span style='font-weight: bold;'&gt;myTargets&lt;/span&gt; should now reflect all enemies inside the sphere, the turret's detectable area.
+&lt;/p&gt;
+
+&lt;pre class='apply-line-numbers'&gt;&lt;code class='hljs cs'&gt;void OnTriggerEnter (Collider other)
+{
+    if (other.gameObject.tag == "enemy") {  
+        myTargets.Add (other.GetComponent&lt;EnemyBase&gt;());
+    }
+}
+
+void OnTriggerExit (Collider other)
+{
+    lock (syncRoot) {
+        if (other != null &amp;&amp;
+            myTargets.Select (t =&gt; t!= null &amp;&amp; t.gameObject).Contains(other.gameObject)) {
+            myTargets.Remove (other.GetComponent&lt;EnemyBase&gt;());
+        }
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Killing Dudes with Projectiles&lt;/h3&gt;
+
+&lt;p&gt;
+    In order to create a projectile, create a new &lt;a href="http://docs.unity3d.com/Manual/class-GameObject.html" target="_blank"&gt;GameObject&lt;/a&gt; starting with as a sphere. 
+    I ended up adding a &lt;a href="http://docs.unity3d.com/Manual/class-MeshRenderer.html" target="_blank"&gt;Mesh Renderer&lt;/a&gt; and a &lt;a href="http://docs.unity3d.com/Manual/class-LineRenderer.html" target="_blank"&gt;Line Renderer&lt;/a&gt; to get it to look like a bullet.
+    Attach a MonoBehavior script called &lt;span style='font-weight: bold;'&gt;Projectile.cs&lt;/span&gt;.
+    Go ahead and make a prefab from this object the same way you did for turrets.
+&lt;/p&gt;
+
+&lt;p&gt;
+     Nothing too crazy going on in this script.
+     It requires a target enemy (and associated location) and just homes in on it until it "hits".
+     We're not doing any collision detection here, but rather checking distance between the projectile and its target.
+     Once the projectile reaches the target, it destroys itself and damages the enemy by subtracting from its health. 
+&lt;/p&gt;
+
+&lt;pre class='apply-line-numbers'&gt;&lt;code class='hljs cs'&gt;using UnityEngine;
+using System.Collections;
+
+public class Projectile : MonoBehaviour
+{
+    // Configurable
+    public float range;
+    public float speed;
+    public EnemyBase target;
+    public Vector3 targetPosition;
+
+    public int Damage { get; set; }
+
+    // Internal
+    private float distance;
+
+    // Runs when entity is Instantiated
+    void Awake ()
+    {
+        distance = 0;
+    }
+
+    // Update is called once per frame
+    void Update ()
+    {
+        Vector3 moveVector = new Vector3 (transform.position.x - targetPosition.x,
+                                         transform.position.y - targetPosition.y,
+                                         transform.position.z - targetPosition.z).normalized;
+
+        // update the position
+        transform.position = new Vector3 (transform.position.x - moveVector.x * speed * Time.deltaTime,
+                                         transform.position.y - moveVector.y * speed * Time.deltaTime,
+                                         transform.position.z - moveVector.z * speed * Time.deltaTime);
+
+        distance += Time.deltaTime * speed;
+
+        if (distance &gt; range ||
+            Vector3.Distance (transform.position, new Vector3 (targetPosition.x, targetPosition.y, targetPosition.z)) &lt; 1) 
+        {
+            Destroy (gameObject);
+            if (target != null) 
+            {
+                target.Damage (Damage);
+            }
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+    Now that projectiles are good to go, drag that new projectile prefab onto the &lt;span style='font-weight: bold;'&gt;projectileType&lt;/span&gt; field (in the inspector when you've got a turret selected).
+    Next, you'll need the following two methods to make the turret "fire" projectiles.
+    All we're doing is setting up a loop where the turret instantiates new projectiles targeted at a random enemy within range.
+&lt;/p&gt;
+
+&lt;pre class='apply-line-numbers'&gt;&lt;code class='hljs cs'&gt;void Fire (EnemyBase myTarget)
+{
+    var targetPosition = myTarget.transform.position;
+    var aimError = Random.Range (-accuracyError, accuracyError);
+    var aimPoint = new Vector3 (targetPosition.x + aimError, targetPosition.y + aimError, targetPosition.z + aimError);
+    nextDamageEvent = Time.time + AttackDelay;
+    GameObject projectileObject = Instantiate (projectileType, transform.position, Quaternion.LookRotation (targetPosition)) as GameObject;
+    Projectile projectile = projectileObject.GetComponent&lt;Projectile&gt; ();
+    projectile.Damage = damage;
+    projectile.target = myTarget;
+    projectile.targetPosition = aimPoint;
+}
+
+// Update is called once per frame
+void Update ()
+{
+    lock(syncRoot)
+    {
+        if (myTargets.Any())
+        {
+            EnemyBase myTarget = myTargets.ElementAt(Random.Range(0, myTargets.Count));
+
+
+            if (myTarget != null) {
+                if (Time.time &gt;= nextDamageEvent)
+                {
+                    Fire(myTarget);
+                }
+            }
+            else
+            {
+                nextDamageEvent = Time.time + AttackDelay;
+                myTargets.Remove(myTarget);
+            }              
+        }
+    }       
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+    To fill in some of the gaps like placing turrets on the map and spawning enemies, I encourage you to go take a look at some of the earlier videos from the &lt;a href="/tag/td-video-series.html"&gt;Tower Defense Tutorial Video Series&lt;/a&gt;. 
+&lt;/p&gt;</summary><category term="tower-defense"></category><category term="unity"></category><category term="tutorial"></category><category term="turret"></category></entry><entry><title>Deploying Unity Games to Android</title><link href="/unity-deploying-to-android.html" rel="alternate"></link><updated>2014-09-21T00:00:00-05:00</updated><author><name>Baer</name></author><id>tag:,2014-09-21:unity-deploying-to-android.html</id><summary type="html">&lt;p&gt;
+    In this tutorial, learn how to deploy your Unity game to an Android device.    
+&lt;/p&gt;
+
+&lt;h3&gt;Install the Java Development Kit&lt;/h3&gt;
+
+&lt;p&gt;
+    &lt;a href="http://www.oracle.com/technetwork/java/javase/downloads/" target="_blank"&gt;Download the JDK from Oracle&lt;/a&gt;
+    &lt;br&gt;
+    Install the JDK. Grab the &lt;span style="font-weight: bold;"&gt;32-bit version&lt;/span&gt;; I wasn't able to get Unity to work with the 64-bit alternative.        
+&lt;/p&gt;
+
+&lt;p&gt;    
+    Include java's &lt;code&gt;bin&lt;/code&gt; directory in your PATH variable. 
+    On my 64-bit Win8 install, the path was &lt;code&gt;"C:\Program Files (x86)\Java\jdk1.8.0_20\bin"&lt;/code&gt;.
+    Yours will likely be something similar.     
+&lt;/p&gt;
+
+&lt;p&gt;
+    &lt;span class="caption"&gt;You should now be able to run "java" at the command line.&lt;/span&gt;
+    &lt;img src="/theme/images/unity_deploying_with_android_java_command_prompt.png"&gt;
+&lt;/p&gt;
+
+&lt;h3&gt;Install the Android SDK&lt;/h3&gt;
+
+&lt;p&gt;
+    &lt;a href="http://developer.android.com/sdk" target="_blank"&gt;Download the Android SDK&lt;/a&gt;
+    &lt;br&gt;
+    Unpack the SDK. 
+    Some of the names in this bundle can be quite long. 
+    So if you're on Windows, be careful about limitations on total path lengths.
+    I got around this by unpacking to &lt;code&gt;"C:\A\"&lt;/code&gt;, a shorter than usual path.
+&lt;/p&gt;
+
+&lt;p&gt;
+    Navigate to that directory, run the &lt;span style="font-weight: bold;"&gt;SDK Manager&lt;/span&gt; and make sure you've got the following installed:
+
+    &lt;ul&gt;
+        &lt;li&gt;An Android platform (2.3 or newer)&lt;/li&gt;
+        &lt;li&gt;Platform tools&lt;/li&gt;
+        &lt;li&gt;USB drivers&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+    &lt;img src="/theme/images/unity_deploying_with_android_android_sdk_manager.png"&gt;
+    &lt;span class="caption"&gt;Here's what I've got installed.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;h3&gt;Setup the Device&lt;/h3&gt;
+
+&lt;p&gt;
+    To allow unsigned Android application packages (APKs) on your device, you'll need to modify some settings. 
+    Go to &lt;code&gt;Settings -&gt; Developer options&lt;/code&gt;.
+    On Android 4.2 (Jelly Bean) and higher, these options have been hidden and adding them to the menu requires extra steps:
+
+     &lt;ol&gt;
+        &lt;li&gt;Go to &lt;code&gt;Settings -&gt; About Phone&lt;/code&gt;.&lt;/li&gt;
+        &lt;li&gt;Find &lt;code&gt;Build Number&lt;/code&gt; and tap it 7 times.&lt;/li&gt;
+        &lt;li&gt;You should see a message confirming you as a developer.&lt;/li&gt;
+     &lt;/ol&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+     Once you get into the developer options, enable &lt;code&gt;USB Debugging&lt;/code&gt; and &lt;code&gt;Allow Mock Locations&lt;/code&gt;.
+     &lt;img src="/theme/images/unity_deploying_with_android_developer_options.png"&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+    Plug in your device over USB, and you should see a message like "USB debugging connected".
+&lt;/p&gt;
+
+&lt;p style="font-size: smaller;"&gt;
+    &lt;span style="font:smaller;"&gt;&lt;span style="font-weight: bold;"&gt;Heads up:&lt;/span&gt;
+    some devices will need additional manufacturer specific drivers. 
+    As an example, I needed &lt;a href="http://developer.android.com/sdk/win-usb.html" target="_blank"&gt;these&lt;/a&gt; for my Nexus 5. 
+&lt;/p&gt;
+
+&lt;h3&gt;Build and Run from Unity&lt;/h3&gt;
+
+&lt;p&gt;
+    Start Unity. Go to &lt;code&gt;Edit -&gt; Preferences -&gt; External Tools&lt;/code&gt;.
+    Point the &lt;code&gt;Android SDK Location&lt;/code&gt; to the appropriate location (&lt;code&gt;"C:\A\adt-bundle-windows-x86_64-20140702\sdk"&lt;/code&gt; in my case). 
+&lt;/p&gt;
+
+&lt;p&gt;
+    Go to &lt;code&gt;File -&gt; Build Settings&lt;/code&gt;.
+    Select &lt;code&gt;Android&lt;/code&gt; and click the &lt;code&gt;Player Settings&lt;/code&gt; button.
+    Set everything up the way you'd like. The &lt;span style="font-weight: bold;"&gt;Bundle Identifer&lt;/span&gt; setting is required and should follow &lt;a href="http://en.wikipedia.org/wiki/Java_package#Package_naming_conventions" target="_blank"&gt;conventions&lt;/a&gt; (&lt;code&gt;com.finalparsec.towerdefense&lt;/code&gt; for example).
+&lt;/p&gt;
+
+&lt;p&gt;
+    Select &lt;code&gt;Build And Run&lt;/code&gt;, select a location for your .apk, and the game should start up on your device.
+&lt;/p&gt;
+
+&lt;p&gt;
+    Continue the discussion with us: &lt;a href="https://twitter.com/Final_Parsec" target="_blank"&gt;@Final_Parsec&lt;/a&gt;
+&lt;/p&gt;</summary><category term="tower-defense"></category><category term="unity"></category><category term="tutorial"></category><category term="android"></category></entry><entry><title>Nauticus First Playthrough</title><link href="/nauticus-first-playthrough.html" rel="alternate"></link><updated>2014-07-27T00:00:00-05:00</updated><author><name>Baer</name></author><id>tag:,2014-07-27:nauticus-first-playthrough.html</id><summary type="html">&lt;div class="video-container"&gt;
+    &lt;iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/_It3JCNDPVI?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</summary><category term="nauticus"></category><category term="alpha"></category></entry><entry><title>Nauticus Alpha Screenshots</title><link href="/nauticus-alpha-screenshots.html" rel="alternate"></link><updated>2014-06-22T00:00:00-05:00</updated><author><name>Baer</name></author><id>tag:,2014-06-22:nauticus-alpha-screenshots.html</id><summary type="html">&lt;p&gt;
+Caught in the golden age of piracy and a zombie apocalypse, Piro is forced into a life of heroism.
+Zombies have overrun major ports, and the isolation of the sea has enabled him to survive.
+The only remaining member of his crew is Hope, the sole wench to have plundered his heart.
+Nauticus is a three-act tale of betrayal, survival, pillaging, and booty as the two seek refuge with an old friend.
+&lt;/p&gt;
+
+&lt;iframe class="imgur-album" width="100%" height="550" frameborder="0" src="http://imgur.com/a/yCmpm/embed"&gt;&lt;/iframe&gt;</summary><category term="nauticus"></category><category term="alpha"></category></entry><entry><title>Space Snakes Alpha Look</title><link href="/snakes-alpha-1.html" rel="alternate"></link><updated>2014-03-16T00:00:00-05:00</updated><author><name>Baer</name></author><id>tag:,2014-03-16:snakes-alpha-1.html</id><summary type="html">&lt;div class="video-container"&gt;
+    &lt;iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/UjPxhrWIjJk?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</summary><category term="snakes"></category><category term="alpha"></category></entry></feed>

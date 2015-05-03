@@ -1,0 +1,541 @@
+<!DOCTYPE HTML>
+<!--
+	forked from:
+	Dopetrope by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Final Parsec - Nauticus</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="/theme/css/ie/html5shiv.js"></script><![endif]-->
+        <script type="application/javascript">
+            var FINAL_PARSEC_THEME_STATIC_DIR = '/theme' + '/';
+        </script>
+		<script src="/theme/js/jquery.min.js"></script>
+		<script src="/theme/js/jquery.dropotron.min.js"></script>
+		<script src="/theme/js/skel.min.js"></script>
+		<script src="/theme/js/skel-layers.min.js"></script>
+		<script src="/theme/js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="/theme/css/skel.css" />
+			<link rel="stylesheet" href="/theme/css/style.css" />
+			<link rel="stylesheet" href="/theme/css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="/theme/css/ie/v8.css" /><![endif]-->
+
+        <!-- For Unity Web Player -->
+        <script type="text/javascript" src="//webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js"></script>
+        <![if IE]>
+        <script type='text/javascript'>
+        if(/*@cc_on!@*/false)
+        var bIsIE = 1;
+        </script>
+        <![endif]>
+        <script language="javascript1.1" type="text/javascript">
+            function detectUnityWebPlayer () {
+                var tInstalled = false;
+                if (typeof (bIsIE) != 'undefined') {
+                    tInstalled = true;
+                }
+                if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
+                   // MSIE
+                    tInstalled = true;
+                }
+
+                if (navigator.appVersion.indexOf("MSIE") != -1 &&
+                    navigator.appVersion.toLowerCase().indexOf("win") != -1)
+                {
+                    tInstalled = detectUnityWebPlayerActiveX();
+                }
+                else if (navigator.mimeTypes && navigator.mimeTypes["application/vnd.unity"])
+                {
+                    if (navigator.mimeTypes["application/vnd.unity"].enabledPlugin &&
+                        navigator.plugins && navigator.plugins["Unity Player"])
+                    {
+                        tInstalled = true;
+                    }
+                }
+                return tInstalled;
+            }
+        </script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-37270839-4', 'auto');
+            ga('require', 'displayfeatures');
+            ga('send', 'pageview');
+        </script>
+	</head>
+<body class="no-sidebar">
+<!-- Header -->
+<div id="header-wrapper">
+    <div id="header">
+
+        <!-- Logo -->
+        <h1><a href="/index.html">FINAL PARSEC</a></h1>
+
+<!-- Nav -->
+<nav id="nav">
+    <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li>
+            <a href="#" onclick="return false;">Games</a>
+            <ul>
+                    <li><a href="/category/nauticus.html">Nauticus</a></li>
+                    <li><a href="/category/space-snakes-legacy-earth.html">Space Snakes: Legacy Earth</a></li>
+                    <li><a href="/category/space-snakes-prototype.html">Space Snakes : Prototype</a></li>
+                    <li><a href="/category/tower-defense.html">Tower Defense</a></li>
+                    <li><a href="/category/unity-masters.html">Unity Masters</a></li>
+            </ul>
+        </li>
+        <li><a href="/tag/tutorial.html">Tutorials</a></li>
+        <li><a href="/archives.html">Blog</a></li>
+        <li><a href="/static_pages/about.html">About</a></li>
+    </ul>
+</nav>
+    </div>
+</div>
+    <!-- Main -->
+    <div id="main-wrapper">
+
+<div class="game_container">
+    <div class="intro ">
+        <img src="/theme/images/nauticus_banner.jpg" style="width: 95%;" />
+
+        <aside id="featured" class="body">
+            <article>
+                <h1 class="entry-title">Intro</h1>
+
+                <h3>Caught in the golden age of piracy and a zombie apocalypse, Piro is forced into a life of heroism.</h3>
+                <p>
+                    Zombies have overrun major ports, and the isolation of the sea has enabled him to survive.
+                    The only remaining member of his crew is Hope, the sole wench to have plundered his heart.
+
+                </p>
+                <p>
+                    The two seek refuge with an old friend and fellow pirate, Land Ho Calrissian, on his fortified island.
+                    Upon arrival, they were betrayed. Hope was kidnapped and Piro was left to fend for himself on the zombie-ridden shores of the island.
+                </p>
+
+                <nav>
+                    <ul>
+                        <li><a href="#" id="act_one_button">Start Act One</a></li>
+                    </ul>
+                </nav>
+            </article>
+        </aside>
+    </div>
+
+    <div class="act_one" style="display: none;">
+        <aside id="featured" class="body">
+            <article>
+                <h1 class="entry-title">Act I: Shores of Hell</h1>
+
+                <h3>Dodge zombies and get to the entrance of Land Ho Calrissian's fortress (black tile to the left).</h3>
+
+                <p>Pick up <span style="font-weight: bold;">apples</span> to increase your health.</p>
+                <p>Pick up <span style="font-weight: bold;">rum</span> for bragging rights once this whole zombie thing settles down.</p>
+
+                <h2>Controls</h2>
+
+                <p>WASD to move up, left, down, and right respectively.</p>
+
+                <nav>
+                    <ul>
+                        <li><a href="#" class="back_to_intro">Back to Intro</a></li>
+                        <li><a href="#" id="act_one_restart">Restart Act One</a></li>
+                        <li><a href="#" id="act_one_continue">Continue to Act Two</a></li>
+                    </ul>
+                </nav>
+
+            </article>
+        </aside>
+
+        <div id="unityPlayer" style="width: 800px; height: 500px; margin-bottom: 2em;"></div>
+    </div>
+
+    <div class="transition-1-2 " style="display: none;">
+        <img src="/theme/images/nauticus_banner_1.jpg" style="width: 95%;" />
+
+        <aside id="featured" class="body">
+            <article>
+                <h1 class="entry-title">Act II</h1>
+
+                <h3>
+                    Piro ventures into Land Ho's fortress to rescue Hope.
+                </h3>
+
+                <p>
+                    Piro's friend betrayed him and stole his captain and lover to the depths of his Pirate fortress.
+                    Zombies have taken over the fortress and you must delve in to teach that scallycoon a lesson!
+                </p>
+
+                <p>
+                    Defeat the evil pirate and rescue Hope, your pirate love.
+                </p>
+
+                <nav>
+                    <ul>
+                        <li><a href="#" class="back_to_intro">Back to Intro</a></li>
+                        <li><a href="#" id="act_two_button">Start Act Two</a></li>
+                    </ul>
+                </nav>
+
+            </article>
+        </aside>
+    </div>
+
+    <div class="act_two " style="display: none;">
+        <aside id="featured" class="body">
+            <article>
+                <h1 class="entry-title">Act II: This Pillage is Personal</h1>
+
+
+                <h3>
+                    Select a Class and Defeat Land Ho!
+                </h3>
+
+
+                <h4>Swashbuckler</h4>
+                <p>
+                    The swashbuckler has a sword (cutlass) and a shield (buckler).
+                    He gets a chance to not take damage, and also gets a chance to do a double attack if it does block an attack.
+                </p>
+
+                <h4>Buccaneer</h4>
+                <p>
+                    The Buccaneer is tanky.
+                    Specializing in unwieldy 2 handed scimitar combat, he gets a 50% chance to regenerate 1HP each turn.
+                </p>
+
+                <h4>Picaroon</h4>
+                <p>
+                    The Picaroon is a roguish pirate with an extensive selection of shanks that match his sharp wit.
+                    The picaroon has a high chance to hit a critical hit with his shank. Criticals do 4x damage, and grow in frequency and damage with level.
+                </p>
+
+                <h4>Rapscallion</h4>
+                <p>
+                    The Rapscallion hits things with his crossbows.
+                    There are no bolts on this island, so he can't utilize his crossbows range.
+                    Even so, he has geared up for close range combat with +200HP at the start of every floor.
+                    Every 4 turns he can use the shimmy on his crossbow for double damage!
+                </p>
+
+                <h4>Scurvy</h4>
+                <p>
+                    There's a 50% chance to contract scurvy every time you move on your scarce pirate diet!
+                    Eat apples to stave off this curvy boned illness.
+                    You've got enough curves already!
+                </p>
+
+                <h2>Controls</h2>
+
+                <p>WASD to move / attack up, left, down, and right respectively.</p>
+
+                <p>Space to use staircase or pick up item.</p>
+
+                <nav>
+                    <ul>
+                        <li><a href="#" class="back_to_intro">Back to Intro</a></li>
+                        <li><a href="#" id="act_two_restart">Restart Act Two</a></li>
+                        <li><a href="#" id="act_two_continue">Continue to Act Three</a></li>
+                    </ul>
+                </nav>
+
+            </article>
+        </aside>
+
+        <div id="unityPlayer" style="width: 800px; height: 500px;"></div>
+    </div>
+
+    <div class="transition-2-3 " style="display: none;">
+        <img src="/theme/images/pirate_zombie.png" style="height: 275px; display: block;" />
+
+        <aside id="featured" class="body">
+            <article>
+                <h1 class="entry-title">Act III</h1>
+
+                <h3>
+                    Having defeated Land Ho, Piro and Hope struggle to survive and escape the island.
+                </h3>
+
+                <nav>
+                    <ul>
+                        <li><a href="#" class="back_to_intro">Back to Intro</a></li>
+                        <li><a href="#" id="act_three_button">Start Act Three</a></li>
+                    </ul>
+                </nav>
+
+            </article>
+        </aside>
+    </div>
+
+    <div class="act_three " style="display: none;">
+        <aside id="featured" class="body">
+            <article>
+                <h1 class="entry-title">Act III: Rediscovering Hope</h1>
+
+                <h3>Build a settlement, fight off zombies, and gather resources to build a way to escape this godforsaken island!</h3>
+
+                <p>Wood resources are used to build - the count is displayed in the <span style="font-weight: bold;">top-left</span>.</p>
+
+                <table style="width: 50%; border: 1px solid #ddd; text-align: left;">
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <th>Build</th>
+                        <th>Cost</th>
+                        <th>Use</th>
+                    </tr>
+                    <tr>
+                        <td>Wall</td>
+                        <td>10</td>
+                        <td>Blocks zombies.</td>
+                    </tr>
+                    <tr>
+                        <td>House</td>
+                        <td>50</td>
+                        <td>Heals pirates.</td>
+                    </tr>
+                    <tr>
+                        <td>Hut</td>
+                        <td>100</td>
+                        <td>Required to gather wood.</td>
+                    </tr>
+                    <tr>
+                        <td>Boat</td>
+                        <td>2000</td>
+                        <td>Escape the island and win the game.</td>
+                    </tr>
+                </table>
+
+                <h2>Controls</h2>
+
+                <p>
+                    Control pirates by <span style="font-weight: bold;">left clicking</span> them and <span style="font-weight: bold;">right clicking</span> on the map.<br>
+                    Navigate the map with the <span style="font-weight: bold;">arrow keys</span> or with the mouse at the edge of the screen.<br>
+                    Use <span style="font-weight: bold;">Q and E</span> to rotate buildings prior to placement.<br>
+                    <span style="font-weight: bold;">Right click</span> on a tree with pirates selected and they will return the wood to the nearest <span style="font-weight: bold;">Hut</span>.<br>
+                    Build the <span style="font-weight: bold;">Boat</span> on the water to escape the island.
+                </p>
+
+
+                <nav>
+                    <ul>
+                        <li><a href="#" class="back_to_intro">Back to Intro</a></li>
+                        <li><a href="#" id="act_three_restart">Restart Act Three</a></li>
+                    </ul>
+                </nav>
+
+            </article>
+        </aside>
+
+        <div id="unityPlayer" style="width: 800px; height: 500px;"></div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function() {
+
+        if (detectUnityWebPlayer()) {
+            // Game start buttons
+
+            $('#act_one_button').click(function() {
+                window.scrollTo(0, 0);
+                $('.game_container > div').filter(':visible').fadeOut(750, function() {
+                    var u = new UnityObject2();
+                    u.initPlugin(jQuery(".act_one > #unityPlayer")[0], "/theme/unity/nauticus_act_one.unity3d");
+
+                    $('.act_one').fadeIn();
+                });
+                return false;
+            });
+
+            $('#act_two_button').click(function() {
+                window.scrollTo(0, 0);
+                $('.game_container > div').filter(':visible').fadeOut(750, function() {
+                    var u = new UnityObject2();
+                    u.initPlugin(jQuery(".act_two > #unityPlayer")[0], "/theme/unity/nauticus_act_two.unity3d");
+
+                    $('.act_two').fadeIn();
+                });
+                return false;
+            });
+
+            $('#act_three_button').click(function() {
+                window.scrollTo(0, 0);
+                $('.game_container > div').filter(':visible').fadeOut(750, function() {
+                    var config = {
+                        width: 800,
+                        height: 500,
+                        params: { enableDebugging: '0' }
+                    };
+                    config.params['disableContextMenu'] = true;
+
+                    var u = new UnityObject2(config);
+                    u.initPlugin(jQuery(".act_three > #unityPlayer")[0], "/theme/unity/nauticus_act_three.unity3d");
+
+                    $('.act_three').fadeIn();
+                });
+                return false;
+            });
+
+            // Game restart buttons.
+
+            $('#act_one_restart').click(function() {
+               var u = new UnityObject2();
+                u.initPlugin(jQuery(".act_one > #unityPlayer")[0], "/theme/unity/nauticus_act_one.unity3d");
+                return false;
+            });
+
+            $('#act_two_restart').click(function() {
+               var u = new UnityObject2();
+                u.initPlugin(jQuery(".act_two > #unityPlayer")[0], "/theme/unity/nauticus_act_two.unity3d");
+                return false;
+            });
+
+            $('#act_three_restart').click(function() {
+                var config = {
+                    width: 800,
+                    height: 500,
+                    params: { enableDebugging: '0' }
+                };
+                config.params['disableContextMenu'] = true;
+
+                var u = new UnityObject2(config);
+                u.initPlugin(jQuery(".act_three > #unityPlayer")[0], "/theme/unity/nauticus_act_three.unity3d");
+                return false;
+            });
+
+            // Backward navigation buttons.
+
+            $('.back_to_intro').click(function() {
+                window.scrollTo(0, 0);
+                $('.game_container > div').filter(':visible').fadeOut(500, function() {
+                    $('.intro').fadeIn();
+                });
+                return false;
+            });
+
+            // Continue buttons (act -> transition)
+            $('#act_one_continue').click(function() {
+                window.scrollTo(0, 0);
+                $('.game_container > div').filter(':visible').fadeOut(500, function() {
+                    $('.transition-1-2').fadeIn();
+                });
+                return false;
+            });
+
+            $('#act_two_continue').click(function() {
+                window.scrollTo(0, 0);
+                $('.game_container > div').filter(':visible').fadeOut(500, function() {
+                    $('.transition-2-3').fadeIn();
+                });
+                return false;
+            });
+
+        } else {
+            $('.intro').find('nav').replaceWith('<div style="background-color: #fff8c4; color:#555; border-radius:10px; font-size:11px; padding:10px 10px 10px 36px; margin:10px;">You need to install the <a href="http://unity3d.com/webplayer">Unity Player plugin</a> in order to play Nauticus.');
+        }
+
+    });
+
+
+</script>
+
+    </div>
+
+    <!-- Footer -->
+        <div id="footer-wrapper">
+            <section id="footer" class="container">
+                <div class="row">
+                    <div class="8u">
+                        <section>
+                            <header>
+                                <h2>Articles about Nauticus</h2>
+                            </header>
+                            <ul class="dates">
+                                        <li>
+                                            <span class="date">Sep <strong>14</strong></span>
+                                            <h3><a href="/unity-health-bars-with-gui-textures.html">Creating Health Bars using Unity GUI Textures</a></h3>
+                                            <p><p>Technical talk from Matt Bauer about Unity creating scaling health bars in Nauticus Act III, the RTS style conclusion to Nauticus.</p></p>
+                                        </li>
+                                        <li>
+                                            <span class="date">Aug <strong>17</strong></span>
+                                            <h3><a href="/unity-animator-state-machine-tutorial.html">Unity Animator State Machine Tutorial</a></h3>
+                                            <p><p>Technical talk from Matt Bauer about Unity animator state machines in Nauticus Act III. Simplify Unity state machines into manageable sub-components.</p></p>
+                                        </li>
+                                        <li>
+                                            <span class="date">Aug <strong>03</strong></span>
+                                            <h3><a href="/a-star-pathfinding-tutorial.html">A* Pathfinding Tutorial</a></h3>
+                                            <p><p>Technical talk from Matt Bauer about A* pathfinding in Nauticus Act III.</p></p>
+                                        </li>
+                                        <li>
+                                            <span class="date">Jul <strong>27</strong></span>
+                                            <h3><a href="/nauticus-first-playthrough.html">Nauticus First Playthrough</a></h3>
+                                            <p><p>Video playthrough of Nauticus, Final Parsec's three-act game depicting the adventures of Piro.</p></p>
+                                        </li>
+                                        <li>
+                                            <span class="date">Jun <strong>22</strong></span>
+                                            <h3><a href="/nauticus-alpha-screenshots.html">Nauticus Alpha Screenshots</a></h3>
+                                            <p><p>A first look at Nauticus, Final Parsec's upcoming pirate adventure.</p></p>
+                                        </li>
+                            </ul>
+                        </section>
+                    </div>
+<div class="4u">
+    <section>
+        <header>
+            <h2>What's a Final Parsec?</h2>
+        </header>
+        <a href="#" class="image featured"><img src="/theme/images/final_parsec.jpg" alt="" /></a>
+        <p>
+            <strong>Final Parsec</strong> is an up and coming indie game development studio in North Texas.
+        </p>
+        <p>
+            Our game development team consists of<br>
+            <a href="/author/matt.html">Matt Bauer</a>, <a href="/author/baer.html">Baer Bradford</a>, and <a href="/author/tj.html">TJ Brosnan</a>.
+        </p>
+        <footer>
+            <a href="/static_pages/about.html" class="button">Find out more</a>
+        </footer>
+    </section>
+
+    <section>
+        <header>
+            <h2>Social</h2>
+        </header>
+        <ul class="social">
+            <li><a class="icon fa-twitter" href="https://twitter.com/Final_Parsec"><span class="label">@FinalParsec</span></a></li>
+            <li><a class="icon fa-youtube" href="https://www.youtube.com/channel/UCHcxGunEdEPlgq5JulJ2fYQ"><span class="label">Tutorials & Streams</span></a></li>
+        </ul>
+    </section>
+</div>                </div>
+
+<div class="row">
+    <div class="12u">
+
+        <!-- Copyright -->
+            <div id="copyright">
+                <ul class="links">
+                    <li>&copy; 2015 Final Parsec - All Rights Reserved</li>
+                </ul>
+            </div>
+    </div>
+</div>            </section>
+        </div>
+
+</body>
+
+
+
+
+
+</html>

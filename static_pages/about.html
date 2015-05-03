@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - About{% endblock %}
+{% block content %}
+
+    <body class="no-sidebar">
+        {% include 'header.html' %}
+
+        <!-- Main -->
+        <div id="main-wrapper">
+            <div class="container">
+                <section>
+                    <header class="major">
+                        <h2>About</h2>
+                    </header>
+
+                    <aside id="featured" class="body">
+                        <article>
+                            <img src="/theme/images/final_parsec.jpg" style="display: block; margin-left: auto; margin-right: auto; max-width: 95%;"/>
+
+                            <h3 style="margin: 1em 0em; text-align: center;">Final Parsec is an up and coming indie game development studio based in North Texas.</h3>
+
+                            <p>
+                                Our team was originally brought together by the legendary TJ Brosnan to develop Space Snakes, a 2 dimensional action space shooter arena.
+                                Our game development team consists of <a href="{{ SITEURL }}/author/matt.html">Matt Bauer</a>, <a href="{{ SITEURL }}/author/baer.html">Baer Bradford</a>, and <a href="{{ SITEURL }}/author/tj.html">TJ Brosnan</a>.
+                            </p>
+
+                            <h4 style="margin: 1em 0em; text-align: center;">
+                                At Final Parsec, we look to pioneer the future of game development and publishing.
+                            </h4>
+
+                            <p>
+                                We have worked with graphic designers Stephen Wilson and Mi Sa Ho for a portion of our artwork.
+                                In addition, we have incorporated assets from open source projects and those generous enough to provide their work to the world.
+                                We make an effort to give back to the community which has helped us so much.
+                                So if you're a fellow developer or interested in the process, we encourage you to take a look at our <a href="{{ SITEURL }}/tag/tutorial.html">tutorials</a>.
+                            </p>
+
+                            <p>
+                                We released our first game, <a href="{{ SITEURL }}/category/nauticus.html">Nauticus</a>, in August 2014.
+                                It is a three game mini-series about piracy, love, and zombies.
+                                <br>(<a href="https://github.com/Final-Parsec/Nauticus">source</a> | <a href="{{ SITEURL }}/tag/nauticus.html">tutorials</a>)
+                            </p>
+
+                            <p>
+                                Our second release, <a href="{{ SITEURL }}/category/tower-defense.html">Aurora Tower Defense</a>, is our first video game available as an Android app via the Google Play Store.
+                                Aurora TD is a maze based tower defense game that depicts the Inuit people's battle against the demons of the North to save the Northern Lights.
+                                <br>(<a href="https://github.com/Final-Parsec/AuroraTD">source</a> | <a href="{{ SITEURL }}/tag/tower-defense.html">tutorials</a>)
+                            </p>
+                        </article>
+                    </aside>
+                </section>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer-wrapper">
+            <section id="footer" class="container">
+                {% include 'copyright_row.html' %}
+            </section>
+        </div>
+    </body>
+
+{% endblock %}

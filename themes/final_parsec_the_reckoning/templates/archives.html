@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - Blog{% endblock %}
+{% block content %}
+
+    <body class="no-sidebar">
+        {% include 'header.html' %}
+
+        <!-- Main -->
+        <div id="main-wrapper">
+            <div class="container">
+                <section>
+                    <header class="major">
+                        <h2>Blog</h2>
+                    </header>
+
+                    {% for batch in dates|batch(2) %}
+                        <div class="row">
+                            {% for article in batch %}
+                                <div class="6u">
+                                    <section class="box">
+                                        <a href="{{ SITEURL }}/{{ article.url }}" class="image featured">
+                                            <img onerror="this.parentNode.parentNode.removeChild(this.parentNode);"
+                                                 src="{{ SITE_URL }}/{{ THEME_STATIC_DIR }}/images/post-preview/{{ article.slug }}.jpg" alt="" />
+                                        </a>
+                                        <header>
+                                            <h3>{{ article.title }}</h3>
+                                            <p>{{ article.locale_date }}</p>
+                                        </header>
+                                        <p>{{ article.summary }}</p>
+                                        <footer>
+                                            <ul class="actions">
+                                                <li><a href="{{ SITEURL }}/{{ article.url }}" class="button icon fa-file-text">Continue Reading</a></li>
+                                            </ul>
+                                        </footer>
+                                    </section>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </section>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer-wrapper">
+            <section id="footer" class="container">
+                <div class="row">
+                    {% set about_width = '8u' %}
+                    {% include 'about.html' %}
+                </div>
+
+                {% include 'copyright_row.html' %}
+            </section>
+        </div>
+    </body>
+
+{% endblock %}
