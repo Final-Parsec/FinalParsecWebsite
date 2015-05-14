@@ -1,0 +1,21 @@
+{% extends "admin_layout.html" %}
+{% block body %}
+    <div class="pure-g-r">
+        <div class="pure-u-1" style="margin: 0 auto;">
+            <form class="pure-form" method="post">
+                {{ form.csrf_token }}
+                {{ form.next }}
+
+                <fieldset>
+                    <legend>Login</legend>
+
+                    <input type="text" name="user_name" maxlength="255" placeholder="Name" />
+                    <input type="password" name="password" maxlength="40" placeholder="Password" />
+
+                    <button type="submit" class="pure-button pure-button-primary">Log In</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+{% endblock body %}
