@@ -1,5 +1,5 @@
 from database import save_changes
-from database.post import Post
+from database.post import get_posts, Post
 from database.user import User
 from datetime import date
 from flask import g, render_template, request, redirect, url_for
@@ -46,7 +46,7 @@ def edit_post(post_id):
     """
     if request.method == 'POST':
         content = request.form.get('content', None)
-        is_draft = request.form.get('is_draft', None)
+        is_draft = True if request.form.get('is_draft', None) else False
         publish_date = request.form.get('publish_date', None)
         slug = request.form.get('slug', None)
         summary = request.form.get('summary', None)
@@ -58,14 +58,16 @@ def edit_post(post_id):
             # Retrieve the post if we're referencing an existing one.
             post_to_edit = Post.get(post_id)
 
+        post_to_edit.author_id = g.user.id
         post_to_edit.content = content
         post_to_edit.is_draft = is_draft
         post_to_edit.publish_date = publish_date
         post_to_edit.slug = slug
         post_to_edit.summary = summary
         post_to_edit.title = title
-
+        post_to_edit.add()
         save_changes()
+        post_id = post_to_edit.id
 
     post = Post() if post_id == 0 else Post.get(post_id)
     return render_template('pages/admin/edit_post.html', current_date=date.today(), post=post)
@@ -108,4 +110,5 @@ def post_list():
 
         Acts as the home page for admin area.
     """
-    return render_template('pages/admin/post_list.html')
+    posts = get_posts()
+    return render_template('pages/admin/post_list.html', posts=posts)

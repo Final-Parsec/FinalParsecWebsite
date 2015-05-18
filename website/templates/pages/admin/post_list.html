@@ -9,8 +9,11 @@
 
 <div class="pure-g-r">
     <div class="pure-u-1">
-        <h2 class="content-subhead">Drafts</h2>
-        <h2 class="content-subhead">Active Posts</h2>
+        <h2 class="content-subhead">Posts</h2>
+
+            {% for post in posts %}
+                <li>{{ post.slug }}</li>
+            {% endfor %}
     </div>
 </div>
 
