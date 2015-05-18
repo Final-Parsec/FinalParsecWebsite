@@ -1,12 +1,27 @@
-create table `post` (
+create table if not exists `post` (
   `id` int(10) unsigned not null auto_increment,
   `slug` varchar(20) not null,
   `publish_date` date default null,
   `summary` varchar(250) not null,
-  `content` text default '',
+  `content` text not null,
   `title` varchar(100) not null,
   `is_draft` boolean null,
+  `author_id` int(10) unsigned not null,
   PRIMARY KEY (`id`)
+);
+
+create table if not exists `tag` (
+	`id` int(10) unsigned not null auto_increment,
+	`name` varchar(25) not null,
+	`game_name` varchar(50) not null,
+	PRIMARY KEY (`id`)
+);
+
+create table if not exists `post_tag` (
+	`id` int(10) unsigned not null auto_increment,
+	`post_id` int(10) unsigned not null,
+	`tag_id` int(10) unsigned not null,
+	PRIMARY KEY (`id`)
 );
 
 create table `score` (

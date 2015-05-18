@@ -10,3 +10,7 @@ def init_database(app_name, global_var):
     g = global_var
     current_app = app_name
     db = SQLAlchemy(app_name)
+
+
+def save_changes():
+    db.session.commit()

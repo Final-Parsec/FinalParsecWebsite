@@ -1,4 +1,7 @@
+from database import save_changes
+from database.post import Post
 from database.user import User
+from datetime import date
 from flask import g, render_template, request, redirect, url_for
 from flask.ext.login import login_required, login_user, logout_user
 from flask.ext.wtf import Form
@@ -29,10 +32,43 @@ def change_password():
             error_message = 'New password must be at least 8 characters.'
         else:
             user.password_hash = generate_password_hash(new_password)
-            user.save_changes()
+            save_changes()
             return render_template('/pages/user_account/change_password_success.html')
 
     return render_template('/pages/admin/change_password.html', error_message=error_message)
+
+
+@final_parsec_website.route('/saxophone_baby_mattress/post/edit/<int:post_id>', methods=['GET', 'POST'])
+@login_required
+def edit_post(post_id):
+    """
+    Use this function to edit existing posts or create a new one (by using a post ID of 0).
+    """
+    if request.method == 'POST':
+        content = request.form.get('content', None)
+        is_draft = request.form.get('is_draft', None)
+        publish_date = request.form.get('publish_date', None)
+        slug = request.form.get('slug', None)
+        summary = request.form.get('summary', None)
+        title = request.form.get('title', None)
+
+        post_to_edit = Post()  # Make a new post by default.
+
+        if post_id > 0:
+            # Retrieve the post if we're referencing an existing one.
+            post_to_edit = Post.get(post_id)
+
+        post_to_edit.content = content
+        post_to_edit.is_draft = is_draft
+        post_to_edit.publish_date = publish_date
+        post_to_edit.slug = slug
+        post_to_edit.summary = summary
+        post_to_edit.title = title
+
+        save_changes()
+
+    post = Post() if post_id == 0 else Post.get(post_id)
+    return render_template('pages/admin/edit_post.html', current_date=date.today(), post=post)
 
 
 @final_parsec_website.route('/saxophone_baby_mattress/log_in/', methods=['GET', 'POST'])
