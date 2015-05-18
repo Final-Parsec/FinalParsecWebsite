@@ -6,12 +6,16 @@
 
             <form method="post" class="pure-form">
                 <fieldset class="pure-group">
-                    <input type="text" class="pure-input-1-2" placeholder="Title" name="title" value="{{ post.title or '' }}">
-                    <input type="text" class="pure-input-1-2" placeholder="Slug" name="slug" value="{{ post.slug or '' }}">
+                    <div>
+                        <label for="is_draft">Is Draft:</label>
+                        <input type="checkbox" class="pure-input-1-2" name="is_draft" {{ 'checked="checked"' if post.is_draft else '' }}" style="display: inline; margin-bottom: 1em;">
+                    </div>
+                    <input type="text" class="pure-input-1-2" placeholder="Title" name="title" value="{{ post.title or '' }}" required>
+                    <input type="text" class="pure-input-1-2" placeholder="Slug" name="slug" value="{{ post.slug or '' }}" required>
                     <input type="date" class="pure-input-1-2" placeholder="Publish Date" name="publish_date" value="{{ post.publish_date or current_date }}">
-                    <input type="checkbox" class="pure-input-1-2" name="is_draft" {{ 'checked="checked"' if post.is_draft else '' }}">
-                    <input type="text" class="pure-input-1-2" name="summary" value="{{ post.summary or '' }}">
-                    <textarea name="content">{{ post.content or '' }}</textarea>
+
+                    <input type="text" class="pure-input-1-2" placeholder="Summary" name="summary" value="{{ post.summary or '' }}" required>
+                    <textarea name="content" style="height: 250px; width: 100%;">{{ post.content or '' }}</textarea>
                 </fieldset>
 
                 <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Save Changes</button>

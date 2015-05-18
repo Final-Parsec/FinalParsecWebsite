@@ -67,7 +67,7 @@ def edit_post(post_id):
         post_to_edit.title = title
         post_to_edit.add()
         save_changes()
-        post_id = post_to_edit.id
+        return redirect(url_for('edit_post', post_id=post_to_edit.id))
 
     post = Post() if post_id == 0 else Post.get(post_id)
     return render_template('pages/admin/edit_post.html', current_date=date.today(), post=post)

@@ -24,4 +24,4 @@ class Post(db.Model):
 
 
 def get_posts():
-    return Post.query.order_by(Post.publish_date)
+    return Post.query.order_by(Post.publish_date.desc())
