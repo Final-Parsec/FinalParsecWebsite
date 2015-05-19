@@ -11,7 +11,8 @@
     <div class="pure-u-1">
         {% for post in posts %}
             <div style="border: 1px solid #ccc; border-radius: 5px; margin: 1em 0em; padding: 1em;">
-                <h2>{{ post.title }} [{{ post.slug }}]</h2>
+                <h2>{{ post.title }}</h2>
+                <h3>{{ post.slug }}</h3>
                 <p>{{ post.summary }}</p>
                 <p style="font-size: smaller; font-style: italic;">{{ post.publish_date }}</p>
                 <a href="{{ url_for('edit_post', post_id=post.id) }}">Edit Post</a>
