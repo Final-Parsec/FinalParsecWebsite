@@ -921,3 +921,8 @@ pre.apply-line-numbers .cl {
   display: block;
   clear: both;
 }
+
+#debug-toolbar {
+    background-color: #ddd;
+    text-align: center;
+}

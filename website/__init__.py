@@ -2,6 +2,7 @@ from database import init_database
 from datetime import timedelta
 from flask import Flask, g, render_template, session
 from flask.ext.login import LoginManager, current_user
+from time import time
 from website.configuration import Config
 
 final_parsec_website = Flask('website')
@@ -30,10 +31,16 @@ def page_missing(error):
 
 @final_parsec_website.before_request
 def before_request():
-    """ Setup session timeout. """
+    # Setup session timeout.
     session.permanent = True
     session.permanent_session_lifetime = timedelta(minutes=30)
     g.user = current_user
+
+    # Record request time.
+    g.request_start_time = time()
+    g.request_time = lambda: "%.5fs" % (time() - g.request_start_time)
+
+    g.debug = final_parsec_website.debug
 
 login_manager = LoginManager()
 login_manager.init_app(final_parsec_website)

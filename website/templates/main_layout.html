@@ -86,6 +86,11 @@
             ga('send', 'pageview');
         </script>
 	</head>
-    {% block content %}
-    {% endblock %}
+    <body>
+        {% if g.debug %}
+            <div id="debug-toolbar">{{ g.request_time() }}</div>
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+    </body>
 </html>

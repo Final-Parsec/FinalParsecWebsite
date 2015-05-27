@@ -1,175 +1,171 @@
 {% extends "main_layout.html" %}
 {% block content_title %}{% endblock %}
 {% block content %}
-    <body class="homepage">
+    <!-- Header -->
+        <div id="header-wrapper">
+            <div id="header">
 
-        <!-- Header -->
-			<div id="header-wrapper">
-				<div id="header">
+                <!-- Logo -->
+                    <h1>
+                        <a href="index.html">
+                            <img src="{{ url_for('static', filename='images/bw_horizontal_logo_trans.png') }}" alt="Final Parsec" style="max-width: 100%;" />
+                        </a>
+                    </h1>
 
-					<!-- Logo -->
-						<h1>
-                            <a href="index.html">
-                                <img src="{{ url_for('static', filename='images/bw_horizontal_logo_trans.png') }}" alt="Final Parsec" style="max-width: 100%;" />
-						    </a>
-                        </h1>
+                {% include 'nav_bar.html' %}
 
-					{% include 'nav_bar.html' %}
+                <!-- Banner -->
+                    <section id="banner">
+                        <header>
+                            <h2>Legacy Earth</h2>
+                            <p>The first installment of the Space Snakes trilogy</p>
+                        </header>
+                    </section>
 
-					<!-- Banner -->
-						<section id="banner">
-							<header>
-								<h2>Legacy Earth</h2>
-								<p>The first installment of the Space Snakes trilogy</p>
-							</header>
-						</section>
-
-					<!-- Intro -->
-						<section id="intro" class="container">
-							<div class="row">
-								<div class="4u">
-									<section class="first">
-										<i class="icon featured fa-cog"></i>
-										<header>
-											<h2>Space Snakes</h2>
-										</header>
-										<p>A universe in the near future where humanity is pushed to its limit exploring the solar system.</p>
-									</section>
-								</div>
-								<div class="4u">
-									<section class="middle">
-										<i class="icon featured alt fa-flash"></i>
-										<header>
-											<h2>Sweet Action</h2>
-										</header>
-										<p>Corporations have risen to the power of major governments and boast militaries of their own.</p>
-									</section>
-								</div>
-								<div class="4u">
-									<section class="last">
-										<i class="icon featured alt2 fa-star"></i>
-										<header>
-											<h2>Make it to the Moon!</h2>
-										</header>
-										<p>The moon has become a mecca of power and corporate wealth in an otherwise lawless frontier.</p>
-									</section>
-								</div>
-							</div>
-							<footer>
-								<ul class="actions">
-									<li><a href="{{ SITEURL }}/category/space-snakes-legacy-earth.html" class="button big">Learn More</a></li>
-{#									<li><a href="#" class="button alt big">Lore</a></li>#}
-								</ul>
-							</footer>
-						</section>
-
-				</div>
-			</div>
-        {% block content_header %}{% endblock %}
-
-		<!-- Main -->
-			<div id="main-wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="12u">
-
-							<!-- Portfolio -->
-								<section>
-									<header class="major">
-										<h2>Our Games</h2>
-									</header>
-									<div class="row">
-                                        {% for cat, null in categories %}
-                                            <div class="4u">
-                                                <section class="box">
-                                                    <a href="{{ SITEURL }}/{{ cat.url }}" class="image featured"><img src="{{ SITE_URL }}/{{ THEME_STATIC_DIR }}/images/{{ cat.page_name }}.jpg" alt="" /></a>
-                                                    <header>
-                                                        <h3>{{ cat }}</h3>
-                                                    </header>
-                                                    <p></p>
-                                                    <footer>
-                                                        <a href="{{ SITEURL }}/{{ cat.url }}" class="button alt">Find out more</a>
-                                                    </footer>
-                                                </section>
-                                            </div>
-                                        {% endfor %}
-									</div>
-								</section>
-
-						</div>
-					</div>
-					<div class="row">
-						<div class="12u">
-
-							<!-- Blog -->
-								<section>
-									<header class="major">
-										<h2>Dev Blog</h2>
-									</header>
-									<div class="row">
-                                        {% if posts %}
-                                            {% for post in posts %}
-                                                {% if loop.index <= 2 %}
-                                                    <div class="6u">
-                                                        <section class="box">
-                                                            <a href="{{ post.slug }}" class="image featured"><img src="{{ url_for('static', filename='images/post-preview/' + post.slug  + '.jpg') }}" alt="" /></a>
-                                                            <header>
-                                                                <h3>{{ post.title }}</h3>
-                                                                <p>{{ post.publish_date }}</p>
-                                                            </header>
-                                                            <p>{{ post.summary }}</p>
-                                                            <footer>
-                                                                <ul class="actions">
-                                                                    <li><a href="{{ post.slug }}" class="button icon fa-file-text">Continue Reading</a></li>
-                                                                </ul>
-                                                            </footer>
-                                                        </section>
-                                                    </div>
-
-                                                {% else %}
-                                                    {% if loop.index == 3 %}
-                                    </div>
+                <!-- Intro -->
+                    <section id="intro" class="container">
+                        <div class="row">
+                            <div class="4u">
+                                <section class="first">
+                                    <i class="icon featured fa-cog"></i>
+                                    <header>
+                                        <h2>Space Snakes</h2>
+                                    </header>
+                                    <p>A universe in the near future where humanity is pushed to its limit exploring the solar system.</p>
                                 </section>
+                            </div>
+                            <div class="4u">
+                                <section class="middle">
+                                    <i class="icon featured alt fa-flash"></i>
+                                    <header>
+                                        <h2>Sweet Action</h2>
+                                    </header>
+                                    <p>Corporations have risen to the power of major governments and boast militaries of their own.</p>
+                                </section>
+                            </div>
+                            <div class="4u">
+                                <section class="last">
+                                    <i class="icon featured alt2 fa-star"></i>
+                                    <header>
+                                        <h2>Make it to the Moon!</h2>
+                                    </header>
+                                    <p>The moon has become a mecca of power and corporate wealth in an otherwise lawless frontier.</p>
+                                </section>
+                            </div>
                         </div>
+                        <footer>
+                            <ul class="actions">
+                                <li><a href="{{ SITEURL }}/category/space-snakes-legacy-earth.html" class="button big">Learn More</a></li>
+{#									<li><a href="#" class="button alt big">Lore</a></li>#}
+                            </ul>
+                        </footer>
+                    </section>
+
+            </div>
+        </div>
+    {% block content_header %}{% endblock %}
+
+    <!-- Main -->
+        <div id="main-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="12u">
+
+                        <!-- Portfolio -->
+                            <section>
+                                <header class="major">
+                                    <h2>Our Games</h2>
+                                </header>
+                                <div class="row">
+                                    {% for cat, null in categories %}
+                                        <div class="4u">
+                                            <section class="box">
+                                                <a href="{{ SITEURL }}/{{ cat.url }}" class="image featured"><img src="{{ SITE_URL }}/{{ THEME_STATIC_DIR }}/images/{{ cat.page_name }}.jpg" alt="" /></a>
+                                                <header>
+                                                    <h3>{{ cat }}</h3>
+                                                </header>
+                                                <p></p>
+                                                <footer>
+                                                    <a href="{{ SITEURL }}/{{ cat.url }}" class="button alt">Find out more</a>
+                                                </footer>
+                                            </section>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </section>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="12u">
+
+                        <!-- Blog -->
+                            <section>
+                                <header class="major">
+                                    <h2>Dev Blog</h2>
+                                </header>
+                                <div class="row">
+                                    {% if posts %}
+                                        {% for post in posts %}
+                                            {% if loop.index <= 2 %}
+                                                <div class="6u">
+                                                    <section class="box">
+                                                        <a href="{{ post.slug }}" class="image featured"><img src="{{ url_for('static', filename='images/post-preview/' + post.slug  + '.jpg') }}" alt="" /></a>
+                                                        <header>
+                                                            <h3>{{ post.title }}</h3>
+                                                            <p>{{ post.publish_date }}</p>
+                                                        </header>
+                                                        <p>{{ post.summary }}</p>
+                                                        <footer>
+                                                            <ul class="actions">
+                                                                <li><a href="{{ post.slug }}" class="button icon fa-file-text">Continue Reading</a></li>
+                                                            </ul>
+                                                        </footer>
+                                                    </section>
+                                                </div>
+
+                                            {% else %}
+                                                {% if loop.index == 3 %}
+                                </div>
+                            </section>
                     </div>
                 </div>
             </div>
-
-                    <!-- Footer -->
-                    <div id="footer-wrapper">
-                        <section id="footer" class="container">
-                            <div class="row">
-                                <div class="8u">
-                                    <section>
-                                        <header>
-                                            <h2>Recent Blog Posts</h2>
-                                        </header>
-                                        <ul class="dates">
-                                                    {% elif loop.index <= 8 %}
-                                                        <li>
-                                                            <span class="date">{{ post.publish_date.strftime('%b') }} <strong>{{ post.publish_date.strftime('%d') }}</strong></span>
-                                                            <h3><a href="{{ post.slug }}">{{ post.title }}</a></h3>
-                                                            <p>{{ post.summary }}</p>
-                                                        </li>
-                                                    {% endif %}
-
-                                                {% endif %}
-                                                {% if loop.last %}
-                                                                            </ul><!-- /#posts-list -->
-                                                                        </section><!-- /#content -->
-
-                                                                    </div>
-
-                                                                    {% include 'about.html' %}
-                                                                </div>
-                                                {% endif %}
-                                            {% endfor %}
-                                        {% endif %}
-
-                    </section>
-                </div>
-			</div>
         </div>
 
-    </body>
+                <!-- Footer -->
+                <div id="footer-wrapper">
+                    <section id="footer" class="container">
+                        <div class="row">
+                            <div class="8u">
+                                <section>
+                                    <header>
+                                        <h2>Recent Blog Posts</h2>
+                                    </header>
+                                    <ul class="dates">
+                                                {% elif loop.index <= 8 %}
+                                                    <li>
+                                                        <span class="date">{{ post.publish_date.strftime('%b') }} <strong>{{ post.publish_date.strftime('%d') }}</strong></span>
+                                                        <h3><a href="{{ post.slug }}">{{ post.title }}</a></h3>
+                                                        <p>{{ post.summary }}</p>
+                                                    </li>
+                                                {% endif %}
+
+                                            {% endif %}
+                                            {% if loop.last %}
+                                                                        </ul><!-- /#posts-list -->
+                                                                    </section><!-- /#content -->
+
+                                                                </div>
+
+                                                                {% include 'about.html' %}
+                                                            </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+
+                </section>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
