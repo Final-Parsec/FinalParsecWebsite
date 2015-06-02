@@ -3,16 +3,16 @@
         <header>
             <h2>What's a Final Parsec?</h2>
         </header>
-        <a href="#" class="image featured"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/final_parsec.jpg" alt="" /></a>
+        <a href="#" class="image featured"><img src="{{ url_for('static', filename='images/final_parsec.jpg') }}" alt="" /></a>
         <p>
             <strong>Final Parsec</strong> is an up and coming indie game development studio in North Texas.
         </p>
         <p>
             Our game development team consists of<br>
-            <a href="{{ SITEURL }}/author/matt.html">Matt Bauer</a>, <a href="{{ SITEURL }}/author/baer.html">Baer Bradford</a>, and <a href="{{ SITEURL }}/author/tj.html">TJ Brosnan</a>.
+            <a href="{{ url_for('author', author_name='Matt') }}">Matt Bauer</a>, <a href="{{ url_for('author', author_name='Baer') }}">Baer Bradford</a>, and <a href="{{ url_for('author', author_name='TJ') }}">TJ Brosnan</a>.
         </p>
         <footer>
-            <a href="{{ SITEURL }}/static_pages/about.html" class="button">Find out more</a>
+            <a href="{{ url_for('about') }}" class="button">Find out more</a>
         </footer>
     </section>
 
@@ -22,7 +22,7 @@
         </header>
         <ul class="social">
             <li><a class="icon fa-twitter" href="https://twitter.com/Final_Parsec"><span class="label">@FinalParsec</span></a></li>
-            <li><a class="icon fa-youtube" href="https://www.youtube.com/channel/UCHcxGunEdEPlgq5JulJ2fYQ"><span class="label">Tutorials & Streams</span></a></li>
+            <li><a class="icon fa-youtube" href="https://www.youtube.com/c/FinalParsec"><span class="label">Tutorials & Streams</span></a></li>
         </ul>
     </section>
 </div>

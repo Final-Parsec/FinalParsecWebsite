@@ -13,3 +13,7 @@ class User(UserMixin, db.Model):
     @staticmethod
     def get(user_id):
         return User.query.get(user_id)
+
+
+def lookup_user_account_by_name(name):
+    return User.query.filter_by(name=name).first()

@@ -1,4 +1,6 @@
 from database import db
+from database.user import User
+from sqlalchemy.orm import backref
 
 
 class Post(db.Model):
@@ -11,7 +13,8 @@ class Post(db.Model):
     content = db.Column('content', db.String)
     title = db.Column('title', db.String)
     is_draft = db.Column('is_draft', db.Boolean)
-    author_id = db.Column('author_id', db.Integer)
+    author_id = db.Column('author_id', db.Integer, db.ForeignKey('user_account.id'))
+    author = db.relationship(User, backref=backref('authored_posts', order_by='desc(Post.publish_date)'))
 
     def add(self):
         db.session.add(self)
