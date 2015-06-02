@@ -12,8 +12,8 @@ create table if not exists `post` (
 
 create table if not exists `tag` (
 	`id` int(10) unsigned not null auto_increment,
-	`name` varchar(25) not null,
-	`game_name` varchar(50) not null,
+	`name` varchar(25) not null unique,
+	`game_name` varchar(50) null,
 	PRIMARY KEY (`id`)
 );
 

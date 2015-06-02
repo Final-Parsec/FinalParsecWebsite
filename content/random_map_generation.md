@@ -12,7 +12,7 @@ Summary: Learn how to programmatically generate earth-like terrain using cellula
 
 <h2>The Game of Life</h2>
 
-<p>In the classic model of Cellular Automata (CA) Conway’s Game of Life, the cells follow four simple rules. <p>
+<p>In the classic model of Cellular Automata (CA) Conway's Game of Life, the cells follow four simple rules. <p>
 
 <ol>
 	<li>Any live cell with fewer than two live neighbors dies, as if caused by under-population.</li>
@@ -25,7 +25,7 @@ Summary: Learn how to programmatically generate earth-like terrain using cellula
 
 <h2>Applying CA to Map Generation</h2>
 
-<p>In Conway’s Game of Life the cell is either alive or dead and always stays in one location (Although patterns can give the appearance of motion). For map generation we are going to create agents to move fromtheir current cell to one of the neighboring cells.</p>
+<p>In Conway's Game of Life the cell is either alive or dead and always stays in one location (Although patterns can give the appearance of motion). For map generation we are going to create agents to move fromtheir current cell to one of the neighboring cells.</p>
 
 <h3>Creating Agents</h3>
 
@@ -35,7 +35,7 @@ Summary: Learn how to programmatically generate earth-like terrain using cellula
 
 <ul>
 	<li>An agent can only move to a neighboring tile that is not the same type that the agent is creating.</li>
-	<li>An agent is more likely to move to a tile if that tile has more neighboring tiles of the agent’s type.</li>
+	<li>An agent is more likely to move to a tile if that tile has more neighboring tiles of the agent's type.</li>
 </ul>
 
 
@@ -43,7 +43,7 @@ Summary: Learn how to programmatically generate earth-like terrain using cellula
 
 <p>Initially I fill my map with one tile type, grass. Then I create a random number of Tree Agents, Mountain Agents, and Water Agents and place them randomly on the map.</p>
 
-<p>Each agent is given a number of times they are allowed to move. When they run out of moves or they can’t find a new place to move to, they are killed. The maps that are created can be varied by changing the number of agents that are used or by changing the number of times they are allowed to move. I start by filling a percentage of the map with agents and then give them a random number from a range to determine how far they can move.</p>
+<p>Each agent is given a number of times they are allowed to move. When they run out of moves or they can't find a new place to move to, they are killed. The maps that are created can be varied by changing the number of agents that are used or by changing the number of times they are allowed to move. I start by filling a percentage of the map with agents and then give them a random number from a range to determine how far they can move.</p>
 
 <h3>Examples</h3>
 
@@ -56,7 +56,7 @@ Summary: Learn how to programmatically generate earth-like terrain using cellula
 <p>
 <strong>Cell</strong> A cell is a location inside the Map that contains a cell type that is manipulated by an agent.<br><br>
 <strong>Cell Type</strong> The type of cell it is. Our cells have the following types Grass, Mountain, Water, and Tree.<br><br>
-<strong>Map</strong> The map is a 2-demensinal plane that is separated into an NxM matrix of cells.<br><br>
+<strong>Map</strong> The map is a 2-dimensional plane that is separated into an NxM matrix of cells.<br><br>
 <strong>Neighborhood/Neighbors</strong> The neighborhood of a cell consists of any cell that is touching or diagonal to the current cell.<br><br>
 	
 
