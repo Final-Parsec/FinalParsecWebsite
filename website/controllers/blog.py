@@ -24,3 +24,9 @@ def author(author_name):
         abort(404)
 
     return render_template('/pages/blog/author.html', author_user_account=author_user_account)
+
+
+@final_parsec_website.route('/b/')
+def blog():
+    posts = get_posts()
+    return render_template('/pages/blog/blog.html', posts=posts)

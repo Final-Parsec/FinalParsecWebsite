@@ -15,24 +15,7 @@
                             {% for batch in author_user_account.authored_posts|batch(2) %}
                                 <div class="row">
                                     {% for post in batch %}
-                                        <div class="6u">
-                                            <section class="box">
-                                                <a href="{{ SITEURL }}/{{ post.url }}" class="image featured">
-                                                    <img onerror="this.parentNode.parentNode.removeChild(this.parentNode);"
-                                                         src="{{ SITE_URL }}/{{ THEME_STATIC_DIR }}/images/post-preview/{{ post.slug }}.jpg" alt="" />
-                                                </a>
-                                                <header>
-                                                    <h3>{{ post.title }}</h3>
-                                                    <p>{{ post.locale_date }}</p>
-                                                </header>
-                                                <p>{{ post.summary }}</p>
-                                                <footer>
-                                                    <ul class="actions">
-                                                        <li><a href="{{ SITEURL }}/{{ post.url }}" class="button icon fa-file-text">Continue Reading</a></li>
-                                                    </ul>
-                                                </footer>
-                                            </section>
-                                        </div>
+                                        {% include 'post_preview.html' %}
                                     {% endfor %}
                                 </div>
                             {% endfor %}

@@ -1,0 +1,15 @@
+<div class="6u">
+    <section class="box">
+        <a href="{{ post.slug }}" class="image featured"><img src="{{ url_for('static', filename='images/post-preview/' + post.slug  + '.jpg') }}" alt="" /></a>
+        <header>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.publish_date }}</p>
+        </header>
+        <p>{{ post.summary }}</p>
+        <footer>
+            <ul class="actions">
+                <li><a href="{{ post.slug }}" class="button icon fa-file-text">Continue Reading</a></li>
+            </ul>
+        </footer>
+    </section>
+</div>

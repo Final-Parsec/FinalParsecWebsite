@@ -1,5 +1,6 @@
 from database import db
 from database.user import User
+from datetime import date
 from sqlalchemy.orm import backref
 
 
@@ -26,5 +27,10 @@ class Post(db.Model):
         return Post.query.get(post_id)
 
 
-def get_posts():
-    return Post.query.order_by(Post.publish_date.desc())
+def get_posts(include_unpublished_posts=False):
+    if include_unpublished_posts:
+        return Post.query.order_by(Post.publish_date.desc())
+    else:
+        today = date.today()
+        return Post.query.filter(Post.publish_date <= today).filter_by(is_draft=False)\
+            .order_by(Post.publish_date.desc())

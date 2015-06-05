@@ -110,5 +110,5 @@ def post_list():
 
         Acts as the home page for admin area.
     """
-    posts = get_posts()
+    posts = get_posts(include_unpublished_posts=True)
     return render_template('pages/admin/post_list.html', posts=posts)
