@@ -4,7 +4,6 @@ from flask import abort, render_template
 from website import final_parsec_website
 
 
-
 @final_parsec_website.route('/')
 def index():
     # todo: games
@@ -15,6 +14,7 @@ def index():
 @final_parsec_website.route('/about/')
 def about():
     return render_template('/pages/blog/about.html')
+
 
 @final_parsec_website.route('/u/<author_name>')
 def author(author_name):
