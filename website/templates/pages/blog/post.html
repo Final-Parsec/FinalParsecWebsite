@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title|striptags }}{% endblock %}
+{% block content %}
+<body class="right-sidebar">
+    {% include 'header.html' %}
+
+    <!-- Main -->
+        <div id="main-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="8u">
+
+                        <!-- Content -->
+                            <article class="box post">
+                                <a href="#" class="image featured">
+                                    <img onerror="this.parentNode.parentNode.removeChild(this.parentNode);"
+                                         src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/post-header/{{ article.slug }}.jpg" alt="" />
+                                </a>
+                                <header>
+                                    <h2>{{ article.title }}</h2>
+                                    <p>{{ article.locale_date }}</p>
+                                </header>
+                                {{ article.content }}
+                                <hr>
+                                <p>Posted to: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></p>
+                                {% include 'taglist.html' %}
+                            </article>
+
+                    </div>
+                    <div class="4u">
+
+                        <!-- Sidebar -->
+                            <section class="box">
+                                <a href="{{ SITEURL }}/{{ article.author.url }}" class="image featured"><img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/author-portrait/{{ article.author }}.jpg" alt="" /></a>
+                                <header>
+                                    <h3>{{ article.author }}</h3>
+                                </header>
+                                <p>
+                                    {% if article.author == 'Matt' %}
+                                        Hey guys, this is Matt!
+                                    {% elif article.author == 'Baer' %}
+                                        Director of Snacks
+                                    {% elif article.author == 'TJ' %}
+                                        Distinguished Vice President of Network Architecture and Master Google Engineer
+                                    {% endif %}
+                                </p>
+                                <footer>
+                                    <a href="{{ SITEURL }}/{{ article.author.url }}" class="button alt">My Articles</a>
+                                </footer>
+                            </section>
+                            <section class="box">
+                                <header>
+                                    <h3>Latest Tweets</h3>
+                                </header>
+
+                                <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/Final_Parsec" data-widget-id="564606085340729344">Tweets by @Final_Parsec</a>
+                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                            </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Footer -->
+        <div id="footer-wrapper">
+            <section id="footer" class="container">
+                <div class="row">
+                    <div class="8u">
+                        {% if article.related_posts %}
+                            <section id="content" class="body">
+                                <header><h2>Related articles</h2></header>
+                                <ul class="dates">
+                                    {% for related_post in article.related_posts %}
+                                        <li>
+                                            <span class="date">{{ related_post.date.strftime('%b') }} <strong>{{ related_post.date.strftime('%d') }}</strong></span>
+                                            <h3><a href="{{ SITEURL }}/{{ related_post.url }}">{{ related_post.title }}</a></h3>
+                                            <p>{{ related_post.summary }}</p>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        {% endif %}
+                    </div>
+
+                    {% include 'about.html' %}
+                </div>
+
+                {% include 'copyright_row.html' %}
+            </section>
+        </div>
+</body>
+{% endblock %}

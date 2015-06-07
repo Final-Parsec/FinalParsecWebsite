@@ -30,3 +30,7 @@ def author(author_name):
 def blog():
     posts = get_posts()
     return render_template('/pages/blog/blog.html', posts=posts)
+
+
+@final_parsec_website.route('/p/<slug>')
+def view_post(slug)
