@@ -15,7 +15,7 @@ Summary: An enlightening guide on how to create a simple parallax effect in Unit
 </p>
 
 <p>
-    <img src="/theme/images/parallax_demo.gif" style="width: 90%;">
+    <img src="/static/images/parallax_demo.gif" style="width: 90%;">
     <span class="caption"><a href="http://i.imgur.com/pxVijIt.gifv">imgur</a></span>
 </p>
 
@@ -41,7 +41,7 @@ Summary: An enlightening guide on how to create a simple parallax effect in Unit
 	Then adjust your camera to get a good view of it.
 </p>
 
-<img src="/theme/images/parallax_planes.jpg" style="max-width: 90%;">
+<img src="/static/images/parallax_planes.jpg" style="max-width: 90%;">
 
 <p>
 	Using parallax is a really cool way to breathe life into your games.
@@ -50,7 +50,7 @@ Summary: An enlightening guide on how to create a simple parallax effect in Unit
 </p>
 
 <h4>See It in Action in Aurora Tower Defense</h4>
-<img src="/theme/images/parallax_aurora_menu.gif" style="width: 90%;">
+<img src="/static/images/parallax_aurora_menu.gif" style="width: 90%;">
 
 <p>
     For the source, check out the project on <a href="https://github.com/Final-Parsec/AuroraTD">Github</a>.

@@ -15,7 +15,7 @@ Needless to say, we were interested and I reached out to Sharon.
 This culminated in a great interview which you can listen to right here. If you'd rather read, the transcript is included as well.
 
 <audio controls>
-  <source src="/theme/audio/PyGameInterview.mp3" type="audio/mpeg">
+  <source src="/static/audio/PyGameInterview.mp3" type="audio/mpeg">
 </audio>
 
 **Sharon:** Hello everyone!  My name is Sharon Lougheed, and I'm a student at The University of Texas at Dallas.  And I'm interviewing an awesome team of game developers from a company called Final Parsec.  Would you guys like to introduce yourselves?

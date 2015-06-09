@@ -49,9 +49,9 @@ Summary: Learn how to programmatically generate earth-like terrain using cellula
 
 <p>Here are two example maps that my agents created. The larger map is 200x200 and the smaller map is 50x50.</p>
 
-<img src="/theme/images/random_map_generation_1.png" style="width: 95%;" />
+<img src="/static/images/random_map_generation_1.png" style="width: 95%;" />
 
-<img src="/theme/images/random_map_generation_2.png" style="width: 95%;" />
+<img src="/static/images/random_map_generation_2.png" style="width: 95%;" />
 
 <p>
 <strong>Cell</strong> A cell is a location inside the Map that contains a cell type that is manipulated by an agent.<br><br>

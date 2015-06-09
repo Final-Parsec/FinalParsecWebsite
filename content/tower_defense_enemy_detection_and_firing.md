@@ -30,7 +30,7 @@ Summary: Learn how to detect enemies and shoot projectiles at them. A continuati
 
 <p>
     <span class="caption">This is what we're using for our Earth Type Turrets. Maybe one day we'll hire an artist...</span>
-    <img src="/theme/images/tower_defense_enemy_detection_and_firing_earth_turret_art.png">
+    <img src="/static/images/tower_defense_enemy_detection_and_firing_earth_turret_art.png">
 </p>
 
 <p>
@@ -46,7 +46,7 @@ Summary: Learn how to detect enemies and shoot projectiles at them. A continuati
 
 <p>
     
-    <img src="/theme/images/tower_defense_enemy_detection_and_firing_earth_turret_components.png">
+    <img src="/static/images/tower_defense_enemy_detection_and_firing_earth_turret_components.png">
     <span class="caption">Your GameObject's components should look something like this.</span>
 </p>
 

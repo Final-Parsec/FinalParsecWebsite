@@ -31,6 +31,6 @@ Summary: The third video tutorial of a series which takes you through the proces
 
 <p>
     You can keep up with the latest as we progress by subscribing to our channel or following us on twitter.  
-    <a href="https://www.youtube.com/channel/UCHcxGunEdEPlgq5JulJ2fYQ"><img src="/theme/images/icons/youtube.png" /></a>
-    <a href="https://twitter.com/Final_Parsec"><img src="/theme/images/icons/twitter.png" /></a>    
+    <a href="https://www.youtube.com/channel/UCHcxGunEdEPlgq5JulJ2fYQ"><img src="/static/images/icons/youtube.png" /></a>
+    <a href="https://twitter.com/Final_Parsec"><img src="/static/images/icons/twitter.png" /></a>    
 </p>

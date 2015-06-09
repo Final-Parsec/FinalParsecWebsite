@@ -27,7 +27,7 @@ Summary: Learn how to deploy an existing Unity game to your android device.
 
 <p>
     <span class="caption">You should now be able to run "java" at the command line.</span>
-    <img src="/theme/images/unity_deploying_with_android_java_command_prompt.png">
+    <img src="/static/images/unity_deploying_with_android_java_command_prompt.png">
 </p>
 
 <h3>Install the Android SDK</h3>
@@ -53,7 +53,7 @@ Summary: Learn how to deploy an existing Unity game to your android device.
 
 
 <p>
-    <img src="/theme/images/unity_deploying_with_android_android_sdk_manager.png">
+    <img src="/static/images/unity_deploying_with_android_android_sdk_manager.png">
     <span class="caption">Here's what I've got installed.</span>
 </p>
 
@@ -73,7 +73,7 @@ Summary: Learn how to deploy an existing Unity game to your android device.
 
 <p>
      Once you get into the developer options, enable <code>USB Debugging</code> and <code>Allow Mock Locations</code>.
-     <img src="/theme/images/unity_deploying_with_android_developer_options.png">
+     <img src="/static/images/unity_deploying_with_android_developer_options.png">
 </p>
 
 <p>

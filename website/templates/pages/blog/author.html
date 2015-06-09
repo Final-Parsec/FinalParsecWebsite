@@ -12,7 +12,7 @@
 
                         <!-- Content -->
                         <article class="box post">
-                            {% for batch in author_user_account.authored_posts|batch(2) %}
+                            {% for batch in authored_posts|batch(2) %}
                                 <div class="row">
                                     {% for post in batch %}
                                         {% include 'post_preview.html' %}
@@ -23,25 +23,7 @@
 
                     </div>
                     <div class="4u">
-
-                        <!-- Sidebar -->
-                            <section class="box">
-                                <a href="{{ url_for('author', author_name=author_user_account.name) }}" class="image featured"><img src="{{ url_for('static', filename=('images/author-portrait/' + author_user_account.name + '.jpg')) }}" alt="" /></a>
-                                <header>
-                                    <h3>{{ author_user_account.name }}</h3>
-                                </header>
-                                <p>
-                                    {{ author_user_account.catch_phrase }}
-                                </p>
-                            </section>
-                            <section class="box">
-                                <header>
-                                    <h3>Latest Tweets</h3>
-                                </header>
-
-                                <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/Final_Parsec" data-widget-id="564606085340729344">Tweets by @Final_Parsec</a>
-                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                            </section>
+                        {% include 'portrait_sidebar.html' %}
                     </div>
                 </div>
             </div>

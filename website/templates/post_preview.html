@@ -1,6 +1,8 @@
 <div class="6u">
     <section class="box">
-        <a href="{{ post.slug }}" class="image featured"><img src="{{ url_for('static', filename='images/post-preview/' + post.slug  + '.jpg') }}" alt="" /></a>
+        <a href="{{ url_for('view_post', slug=post.slug) }}" class="image featured">
+            <img src="{{ url_for('static', filename='images/post-preview/' + post.slug  + '.jpg') }}" alt="" onerror="this.parentNode.parentNode.removeChild(this.parentNode);" />
+        </a>
         <header>
             <h3>{{ post.title }}</h3>
             <p>{{ post.publish_date }}</p>
@@ -8,7 +10,7 @@
         <p>{{ post.summary }}</p>
         <footer>
             <ul class="actions">
-                <li><a href="{{ post.slug }}" class="button icon fa-file-text">Continue Reading</a></li>
+                <li><a href="{{ url_for('view_post', slug=post.slug) }}" class="button icon fa-file-text">Continue Reading</a></li>
             </ul>
         </footer>
     </section>

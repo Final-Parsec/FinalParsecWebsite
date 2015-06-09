@@ -419,9 +419,9 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 
 <p>Here are two example maps that my agents created. The larger map is 200x200 and the smaller map is 50x50.</p>
 
-<img src="/theme/images/random_map_generation_1.png" style="width: 95%;" />
+<img src="/static/images/random_map_generation_1.png" style="width: 95%;" />
 
-<img src="/theme/images/random_map_generation_2.png" style="width: 95%;" />
+<img src="/static/images/random_map_generation_2.png" style="width: 95%;" />
 
 <p>
 <strong>Cell</strong> A cell is a location inside the Map that contains a cell type that is manipulated by an agent.<br><br>
@@ -493,7 +493,7 @@ Needless to say, we were interested and I reached out to Sharon.
 This culminated in a great interview which you can listen to right here. If you''d rather read, the transcript is included as well.
 
 <audio controls>
-  <source src="/theme/audio/PyGameInterview.mp3" type="audio/mpeg">
+  <source src="/static/audio/PyGameInterview.mp3" type="audio/mpeg">
 </audio>
 
 **Sharon:** Hello everyone!  My name is Sharon Lougheed, and I''m a student at The University of Texas at Dallas.  And I''m interviewing an awesome team of game developers from a company called Final Parsec.  Would you guys like to introduce yourselves?
@@ -639,7 +639,7 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 
 <p>
     <span class="caption">This is what we''re using for our Earth Type Turrets. Maybe one day we''ll hire an artist...</span>
-    <img src="/theme/images/tower_defense_enemy_detection_and_firing_earth_turret_art.png">
+    <img src="/static/images/tower_defense_enemy_detection_and_firing_earth_turret_art.png">
 </p>
 
 <p>
@@ -655,7 +655,7 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 
 <p>
     
-    <img src="/theme/images/tower_defense_enemy_detection_and_firing_earth_turret_components.png">
+    <img src="/static/images/tower_defense_enemy_detection_and_firing_earth_turret_components.png">
     <span class="caption">Your GameObject''s components should look something like this.</span>
 </p>
 
@@ -1038,8 +1038,8 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 
 <p>
     You can keep up with the latest as we progress by subscribing to our channel or following us on twitter.  
-    <a href="https://www.youtube.com/channel/UCHcxGunEdEPlgq5JulJ2fYQ"><img src="/theme/images/icons/youtube.png" /></a>
-    <a href="https://twitter.com/Final_Parsec"><img src="/theme/images/icons/twitter.png" /></a>    
+    <a href="https://www.youtube.com/channel/UCHcxGunEdEPlgq5JulJ2fYQ"><img src="/static/images/icons/youtube.png" /></a>
+    <a href="https://twitter.com/Final_Parsec"><img src="/static/images/icons/twitter.png" /></a>    
 </p>', 'Tower Defense Tutorials Part 3', 0, 2);
 
 set @last_post_id  = LAST_INSERT_ID();
@@ -1114,7 +1114,7 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 </p>
 
 <p>
-    <img src="/theme/images/parallax_demo.gif" style="width: 90%;">
+    <img src="/static/images/parallax_demo.gif" style="width: 90%;">
     <span class="caption"><a href="http://i.imgur.com/pxVijIt.gifv">imgur</a></span>
 </p>
 
@@ -1140,7 +1140,7 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 	Then adjust your camera to get a good view of it.
 </p>
 
-<img src="/theme/images/parallax_planes.jpg" style="max-width: 90%;">
+<img src="/static/images/parallax_planes.jpg" style="max-width: 90%;">
 
 <p>
 	Using parallax is a really cool way to breathe life into your games.
@@ -1149,7 +1149,7 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 </p>
 
 <h4>See It in Action in Aurora Tower Defense</h4>
-<img src="/theme/images/parallax_aurora_menu.gif" style="width: 90%;">
+<img src="/static/images/parallax_aurora_menu.gif" style="width: 90%;">
 
 <p>
     For the source, check out the project on <a href="https://github.com/Final-Parsec/AuroraTD">Github</a>.
@@ -1293,7 +1293,7 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 
 <p>
     <span class="caption">You should now be able to run "java" at the command line.</span>
-    <img src="/theme/images/unity_deploying_with_android_java_command_prompt.png">
+    <img src="/static/images/unity_deploying_with_android_java_command_prompt.png">
 </p>
 
 <h3>Install the Android SDK</h3>
@@ -1319,7 +1319,7 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 
 
 <p>
-    <img src="/theme/images/unity_deploying_with_android_android_sdk_manager.png">
+    <img src="/static/images/unity_deploying_with_android_android_sdk_manager.png">
     <span class="caption">Here''s what I''ve got installed.</span>
 </p>
 
@@ -1339,7 +1339,7 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 
 <p>
      Once you get into the developer options, enable <code>USB Debugging</code> and <code>Allow Mock Locations</code>.
-     <img src="/theme/images/unity_deploying_with_android_developer_options.png">
+     <img src="/static/images/unity_deploying_with_android_developer_options.png">
 </p>
 
 <p>

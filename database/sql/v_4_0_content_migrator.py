@@ -77,4 +77,4 @@ if __name__ == '__main__':
         for tag in tags.split(', '):
             sql_file.write("insert ignore into tag(name) values('" + tag + "');\n")
             sql_file.write("set @tag_id  = LAST_INSERT_ID();\n")
-            sql_file.write("insert into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);\n\n")
+            sql_file.write("insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);\n\n")

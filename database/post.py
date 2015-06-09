@@ -27,6 +27,10 @@ class Post(db.Model):
         return Post.query.get(post_id)
 
 
+def get_post_by_slug(slug):
+    return Post.query.filter_by(slug=slug).first()
+
+
 def get_posts(include_unpublished_posts=False):
     if include_unpublished_posts:
         return Post.query.order_by(Post.publish_date.desc())
