@@ -53,4 +53,6 @@ def view_post(slug):
 
     author_user_account = post.author
 
+    post.tags = post.tags
+
     return render_template('/pages/blog/post.html', author_user_account=author_user_account, post=post)

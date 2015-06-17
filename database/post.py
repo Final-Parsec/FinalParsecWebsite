@@ -1,4 +1,5 @@
 from database import db
+from database.post_tag import PostTag
 from database.user import User
 from datetime import date
 from sqlalchemy.orm import backref
@@ -16,6 +17,7 @@ class Post(db.Model):
     is_draft = db.Column('is_draft', db.Boolean)
     author_id = db.Column('author_id', db.Integer, db.ForeignKey('user_account.id'))
     author = db.relationship(User, backref=backref('authored_posts', order_by='desc(Post.publish_date)'))
+    tags = db.relationship(PostTag)
 
     def add(self):
         db.session.add(self)
@@ -35,6 +37,16 @@ def get_posts(include_unpublished_posts=False):
     if include_unpublished_posts:
         return Post.query.order_by(Post.publish_date.desc())
     else:
+
+        # return db.session.query(Post.id,
+        #                         Post.slug,
+        #                         Post.publish_date,
+        #                         Post.summary,
+        #                         Post.content,
+        #                         Post.title,
+        #                         Post.is_draft,
+        #                         Post.author)
+
         today = date.today()
         return Post.query.filter(Post.publish_date <= today).filter_by(is_draft=False)\
             .order_by(Post.publish_date.desc())

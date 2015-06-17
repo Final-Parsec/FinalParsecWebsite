@@ -48,19 +48,19 @@ Then restart apache to ensure your changes take effect.
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('web-dev');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'web-dev';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('apache');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'apache';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('cache');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'cache';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('a-star-pathfinding-tutorial','2014-08-03', 'Technical talk from Matt Bauer about A* pathfinding in Nauticus Act III.', '
@@ -88,23 +88,23 @@ And some additional resources to help get you started:
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('nauticus');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'nauticus';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('alpha');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'alpha';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('pathfinding');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'pathfinding';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('building-a-leaderboard-system','2015-03-29', 'In this post, we discuss building an online application capable of tracking score boards (leaderboards) for a number of games and categories.', '
@@ -190,27 +190,27 @@ Then restart apache to ensure your changes take effect.
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('web-dev');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'web-dev';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('apache');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'apache';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('mysql');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'mysql';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tower-defense');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tower-defense';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('legacy-earth-enemy-health-and-explosions','2015-04-20', 'Video tutorial about managing enemy health in a rail shooter built with Unity3d. We''ll also discuss killing enemies in fiery explosions.', '
@@ -230,27 +230,27 @@ You can follow along with the development of the project and find the source cod
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('snakes');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'snakes';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('alpha');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'alpha';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('legacy-earth');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'legacy-earth';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('legacy-earth-video-series');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'legacy-earth-video-series';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('legacy-earth-ship-movement','2015-02-15', 'Video tutorial about ship and camera movement in a rail shooter built with Unity3d.', '
@@ -270,31 +270,31 @@ We have our up to date source code and project files on [GitHub](https://github.
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('snakes');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'snakes';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('alpha');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'alpha';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('legacy-earth');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'legacy-earth';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('movement');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'movement';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('legacy-earth-video-series');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'legacy-earth-video-series';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('legacy-earth-turrets-and-missiles','2015-02-28', 'Video tutorial about turrets and missiles in a rail shooter built with Unity3d.', '
@@ -313,31 +313,31 @@ You can follow along with the development of the project and find the source cod
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('snakes');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'snakes';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('alpha');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'alpha';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('legacy-earth');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'legacy-earth';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('turret');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'turret';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('legacy-earth-video-series');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'legacy-earth-video-series';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('nauticus-alpha-screenshots','2014-06-22', 'A first look at Nauticus, Final Parsec''s upcoming pirate adventure.', '
@@ -353,11 +353,11 @@ Nauticus is a three-act tale of betrayal, survival, pillaging, and booty as the 
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('nauticus');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'nauticus';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('alpha');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'alpha';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('nauticus-first-playthrough','2014-07-27', 'Video playthrough of Nauticus, Final Parsec''s three-act game depicting the adventures of Piro.', '
@@ -368,11 +368,11 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('nauticus');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'nauticus';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('alpha');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'alpha';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('nauticus-map-generation','2014-03-31', 'Learn how to programmatically generate earth-like terrain using cellular automata.', '
@@ -448,11 +448,11 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('nauticus');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'nauticus';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('map-generation');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'map-generation';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('snakes-alpha-1','2014-03-16', 'Video of Space Snakes, Final Parsec''s upcoming 2D platformer, in its alpha state.', '
@@ -463,11 +463,11 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('snakes');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'snakes';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('alpha');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'alpha';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('snakes-concept-art','2014-03-16', 'A first look at Space Snakes, Final Parsec''s upcoming 2D platformer.', '
@@ -476,11 +476,11 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('snakes');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'snakes';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('alpha');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'alpha';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('pygame-interview','2015-05-03', 'The entire Final Parsec team gets interviewed by Sharon Lougheed. We discuss how it all got started and our experiences developing with Python and PyGame.', '
@@ -577,11 +577,11 @@ If you liked this, I encourage you to take a look at [Sharon''s blog](http://lea
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('snakes');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'snakes';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('pygame');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'pygame';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('tower-defense-creating-waves-of-enemies','2014-11-25', 'The fourth video tutorial of a series which takes you through the process of building a tower defense game.', '
@@ -599,19 +599,19 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('tower-defense');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tower-defense';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('td-video-series');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'td-video-series';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('tower-defense-enemy-detection-and-firing','2014-11-23', 'Learn how to detect enemies and shoot projectiles at them. A continuation of the tower defense tutorial series.', '
@@ -923,19 +923,19 @@ void Update ()
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('tower-defense');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tower-defense';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('turret');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'turret';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('tower-defense-interfacing-with-the-map','2014-10-02', 'The second video tutorial of a series which takes you through the process of building a tower defense game.', '
@@ -961,23 +961,23 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('tower-defense');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tower-defense';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('map-generation');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'map-generation';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('td-video-series');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'td-video-series';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('tower-defense-in-game-menu-and-little-things','2014-12-07', 'The sixth video tutorial of a series which takes you through the process of building a tower defense game.', '
@@ -997,19 +997,19 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('tower-defense');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tower-defense';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('td-video-series');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'td-video-series';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('tower-defense-moving-enemies-and-pathfinding','2014-10-12', 'The third video tutorial of a series which takes you through the process of building a tower defense game.', '
@@ -1045,23 +1045,23 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('tower-defense');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tower-defense';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('pathfinding');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'pathfinding';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('td-video-series');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'td-video-series';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('tower-defense-no-gameobject-grid','2014-09-28', 'The first video tutorial of a series which takes you through the process of building a tower defense game.', '
@@ -1085,23 +1085,23 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('tower-defense');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tower-defense';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('map-generation');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'map-generation';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('td-video-series');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'td-video-series';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('parallax-for-dummies','2015-03-15', 'An enlightening guide on how to create a simple parallax effect in Unity. Using parallax is a really cool way to breathe life into your games.', '
@@ -1158,15 +1158,15 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('tower-defense');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tower-defense';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('tower-defense-passing-data-and-menus','2014-11-30', 'The fifth video tutorial of a series which takes you through the process of building a tower defense game.', '
@@ -1187,19 +1187,19 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('tower-defense');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tower-defense';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('td-video-series');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'td-video-series';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('tower-defense-release','2014-12-22', 'Aurora Tower Defense has just been released for PC, Mac, and Android devices. Play for free in your browser now!', '
@@ -1237,15 +1237,15 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('tower-defense');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tower-defense';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('android');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'android';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('unity-animator-state-machine-tutorial','2014-08-17', 'Technical talk from Matt Bauer about Unity animator state machines in Nauticus Act III. Simplify Unity state machines into manageable sub-components.', '
@@ -1260,15 +1260,15 @@ If you have any questions about this issue or others I have posted, leave us a c
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('nauticus');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'nauticus';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('unity-deploying-to-android','2014-09-21', 'Learn how to deploy an existing Unity game to your android device.', '
@@ -1376,19 +1376,19 @@ insert into post (slug, publish_date, summary, content, title, is_draft, author_
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('tower-defense');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tower-defense';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('android');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'android';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('unity-health-bars-with-gui-textures','2014-09-14', 'Technical talk from Matt Bauer about Unity creating scaling health bars in Nauticus Act III, the RTS style conclusion to Nauticus.', '
@@ -1406,15 +1406,15 @@ If you have any questions about this tutorial or others I have posted, leave us 
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('nauticus');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'nauticus';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert into post (slug, publish_date, summary, content, title, is_draft, author_id) values('a-star-visualization','2015-01-13', 'See A* pathfinding visualized in your browser.', '
@@ -1440,22 +1440,22 @@ The biggest achievement of this program is the implementation of the PNBA\* algo
 set @last_post_id  = LAST_INSERT_ID();
 
 insert ignore into tag(name) values('unity');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('unity-masters');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'unity-masters';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('map-generation');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'map-generation';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('pathfinding');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'pathfinding';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
 insert ignore into tag(name) values('tutorial');
-set @tag_id  = LAST_INSERT_ID();
+select id into @tag_id from tag where name = 'tutorial';
 insert ignore into post_tag(post_id, tag_id) values(@last_post_id, @tag_id);
 
