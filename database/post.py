@@ -37,16 +37,17 @@ def get_posts(include_unpublished_posts=False):
     if include_unpublished_posts:
         return Post.query.order_by(Post.publish_date.desc())
     else:
-
-        # return db.session.query(Post.id,
-        #                         Post.slug,
-        #                         Post.publish_date,
-        #                         Post.summary,
-        #                         Post.content,
-        #                         Post.title,
-        #                         Post.is_draft,
-        #                         Post.author)
-
         today = date.today()
         return Post.query.filter(Post.publish_date <= today).filter_by(is_draft=False)\
             .order_by(Post.publish_date.desc())
+
+
+def get_posts_with_tag(tag_name):
+    from database.tag import Tag
+    today = date.today()
+    return db.session.query(Post.publish_date, Post.slug, Post.summary, Post.title)\
+        .join('tags', 'tag')\
+        .filter(Post.is_draft == False)\
+        .filter(Post.publish_date <= today)\
+        .filter(Tag.name == tag_name)\
+        .order_by(Post.publish_date.desc())

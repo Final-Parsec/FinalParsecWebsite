@@ -1,17 +1,10 @@
-from database.post import get_post_by_slug, get_posts, Post
+from database.post import get_post_by_slug, get_posts, get_posts_with_tag, Post
 from database.user import lookup_user_account_by_name
 from datetime import date
 from flask import abort, Markup, render_template
 from flask.ext.login import current_user
 from markdown import markdown
 from website import final_parsec_website
-
-
-@final_parsec_website.route('/')
-def index():
-    # todo: games
-    posts = get_posts()
-    return render_template('/pages/blog/index.html', posts=posts)
 
 
 @final_parsec_website.route('/about/')
@@ -35,6 +28,19 @@ def author(author_name):
 def blog():
     posts = get_posts()
     return render_template('/pages/blog/blog.html', posts=posts)
+
+
+@final_parsec_website.route('/')
+def index():
+    # todo: games
+    posts = get_posts()
+    return render_template('/pages/blog/index.html', posts=posts)
+
+
+@final_parsec_website.route('/tag/<tag_name>')
+def tag(tag_name):
+    posts = get_posts_with_tag(tag_name)
+    return render_template('/pages/blog/tag.html', posts=posts, tag=tag_name)
 
 
 @final_parsec_website.route('/p/<slug>')

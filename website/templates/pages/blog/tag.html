@@ -1,0 +1,40 @@
+{% extends "main_layout.html" %}
+{% block title %}Final Parsec - {{ tag }}{% endblock %}
+{% block content %}
+
+    <body class="no-sidebar">
+        {% include 'header.html' %}
+
+        <!-- Main -->
+        <div id="main-wrapper">
+            <div class="container">
+                <section>
+                    <header class="major">
+                        <h2>Articles tagged with "{{ tag }}"</h2>
+                    </header>
+
+                    {% for batch in posts|batch(2) %}
+                        <div class="row">
+                            {% for post in batch %}
+                                {% include 'post_preview.html' %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </section>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer-wrapper">
+            <section id="footer" class="container">
+                <div class="row">
+                    {% set about_width = '8u' %}
+                    {% include 'about.html' %}
+                </div>
+
+                {% include 'copyright_row.html' %}
+            </section>
+        </div>
+    </body>
+
+{% endblock %}
