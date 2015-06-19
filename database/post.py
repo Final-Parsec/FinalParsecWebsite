@@ -1,11 +1,12 @@
 from database import db
-from database.post_tag import PostTag
 from database.user import User
 from datetime import date
 from sqlalchemy.orm import backref
 
 
 class Post(db.Model):
+    from database.post_tag import PostTag
+
     __tablename__ = 'post'
 
     id = db.Column('id', db.Integer, primary_key=True)
@@ -51,3 +52,22 @@ def get_posts_with_tag(tag_name):
         .filter(Post.publish_date <= today)\
         .filter(Tag.name == tag_name)\
         .order_by(Post.publish_date.desc())
+
+
+def get_related_posts(post_id):
+    today = date.today()
+
+    query = '''
+        select distinct p.title, p.slug, p.publish_date, p.summary
+        from post p
+        join post_tag pt on pt.post_id = p.id
+        join post_tag pt2 on pt2.tag_id = pt.tag_id
+        where pt.post_id != ''' + str(post_id) + '''
+          and pt2.post_id = ''' + str(post_id) + '''
+          and p.is_draft = 0
+          and p.publish_date < \'''' + str(today) + '''\'
+        order by rand()
+        limit 5;
+    '''
+
+    return db.engine.execute(query)

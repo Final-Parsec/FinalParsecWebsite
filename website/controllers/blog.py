@@ -1,4 +1,4 @@
-from database.post import get_post_by_slug, get_posts, get_posts_with_tag, Post
+from database.post import get_post_by_slug, get_posts, get_posts_with_tag, get_related_posts, Post
 from database.user import lookup_user_account_by_name
 from datetime import date
 from flask import abort, Markup, render_template
@@ -45,8 +45,6 @@ def tag(tag_name):
 
 @final_parsec_website.route('/p/<slug>')
 def view_post(slug):
-    # todo: tags and related posts
-
     post = None
     if slug:
         post = get_post_by_slug(slug)
@@ -59,6 +57,9 @@ def view_post(slug):
 
     author_user_account = post.author
 
-    post.tags = post.tags
+    related_posts = get_related_posts(post.id)
 
-    return render_template('/pages/blog/post.html', author_user_account=author_user_account, post=post)
+    return render_template('/pages/blog/post.html',
+                           author_user_account=author_user_account,
+                           post=post,
+                           related_posts=related_posts)
