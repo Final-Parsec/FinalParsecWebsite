@@ -21,7 +21,9 @@ def author(author_name):
 
     authored_posts = get_posts(current_user.is_authenticated()).filter_by(author_id=author_user_account.id)
 
-    return render_template('/pages/blog/author.html', authored_posts=authored_posts, author_user_account=author_user_account)
+    return render_template('/pages/blog/author.html',
+                           authored_posts=authored_posts,
+                           author_user_account=author_user_account)
 
 
 @final_parsec_website.route('/b/')

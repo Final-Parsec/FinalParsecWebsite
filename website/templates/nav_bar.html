@@ -5,8 +5,8 @@
         <li>
             <a href="#" onclick="return false;">Games</a>
             <ul>
-                {% for cat, null in categories %}
-                    <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                {% for game_tag in g.game_tags %}
+                    <li><a href="{{ url_for('landing_page', game_tag_name=game_tag.name) }}">{{ game_tag.game_name }}</a></li>
                 {% endfor %}
             </ul>
         </li>

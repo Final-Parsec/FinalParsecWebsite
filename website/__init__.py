@@ -42,6 +42,9 @@ def before_request():
 
     g.debug = final_parsec_website.debug
 
+    from database.tag import get_game_tags
+    g.game_tags = get_game_tags()
+
 login_manager = LoginManager()
 login_manager.init_app(final_parsec_website)
 login_manager.login_view = 'log_in'
