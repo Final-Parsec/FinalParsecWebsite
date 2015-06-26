@@ -54,7 +54,7 @@
                         </div>
                         <footer>
                             <ul class="actions">
-                                <li><a href="{{ SITEURL }}/category/space-snakes-legacy-earth.html" class="button big">Learn More</a></li>
+                                <li><a href="{{ url_for('landing_page', game_tag_name='legacy-earth') }}" class="button big">Learn More</a></li>
 {#									<li><a href="#" class="button alt big">Lore</a></li>#}
                             </ul>
                         </footer>
@@ -76,16 +76,16 @@
                                     <h2>Our Games</h2>
                                 </header>
                                 <div class="row">
-                                    {% for cat, null in categories %}
+                                    {% for game_tag in g.game_tags %}
                                         <div class="4u">
                                             <section class="box">
-                                                <a href="{{ SITEURL }}/{{ cat.url }}" class="image featured"><img src="{{ SITE_URL }}/{{ THEME_STATIC_DIR }}/images/{{ cat.page_name }}.jpg" alt="" /></a>
+                                                <a href="{{ url_for('landing_page', game_tag_name=game_tag.name) }}" class="image featured"><img src="{{ url_for('static', filename='images/game_thumbnail/' + game_tag.name + '.jpg') }}" alt="" /></a>
                                                 <header>
-                                                    <h3>{{ cat }}</h3>
+                                                    <h3>{{ game_tag.game_name }}</h3>
                                                 </header>
                                                 <p></p>
                                                 <footer>
-                                                    <a href="{{ SITEURL }}/{{ cat.url }}" class="button alt">Find out more</a>
+                                                    <a href="{{ url_for('landing_page', game_tag_name=game_tag.name) }}" class="button alt">Find out more</a>
                                                 </footer>
                                             </section>
                                         </div>

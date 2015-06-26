@@ -21,7 +21,7 @@
                 {% endif %}
 
                 <hr>
-                <h2>Posts about {{ tag.game_name }}</h2>
+
                 {% for batch in posts|batch(2) %}
                     <div class="row">
                         {% for post in batch %}
