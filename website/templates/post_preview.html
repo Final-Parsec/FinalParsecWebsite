@@ -5,7 +5,7 @@
         </a>
         <header>
             <h3>{{ post.title }}</h3>
-            <p>{{ post.publish_date }}</p>
+            <p>{{ post.publish_date|pretty_date }} | <span style="font-size: smaller;">{{ post.publish_date }}</p>
         </header>
         <p>{{ post.summary }}</p>
         <footer>

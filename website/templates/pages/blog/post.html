@@ -18,7 +18,7 @@
                                 </a>
                                 <header>
                                     <h2>{{ post.title }}</h2>
-                                    <p>{{ post.locale_date }}</p>
+                                    <p>{{ post.publish_date|pretty_date }} | <span style="font-size: smaller;">{{ post.publish_date }}</span></p>
                                 </header>
                                 {{ post.content }}
                                 <hr>

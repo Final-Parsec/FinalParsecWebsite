@@ -3,12 +3,15 @@ from datetime import timedelta
 from flask import Flask, g, render_template, session
 from flask.ext.login import LoginManager, current_user
 from time import time
+from website import jinja_filters
 from website.configuration import Config
 
 final_parsec_website = Flask('website')
 
 final_parsec_website.config.from_object(Config)
 final_parsec_website.debug = final_parsec_website.config['APP_DEBUG']
+
+final_parsec_website.jinja_env.filters['pretty_date'] = jinja_filters.pretty_date
 
 init_database(final_parsec_website, g)
 
