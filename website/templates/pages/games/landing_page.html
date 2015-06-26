@@ -1,6 +1,43 @@
 {% extends "main_layout.html" %}
 {% block title %}Final Parsec - {{ tag.game_name }}{% endblock %}
 {% block content %}
+
+<!-- For Unity Web Player -->
+<script type="text/javascript" src="//webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js"></script>
+<![if IE]>
+<script type='text/javascript'>
+if(/*@cc_on!@*/false)
+var bIsIE = 1;
+</script>
+<![endif]>
+<script language="javascript1.1" type="text/javascript">
+    function detectUnityWebPlayer () {
+        var tInstalled = false;
+        if (typeof (bIsIE) != 'undefined') {
+            tInstalled = true;
+        }
+        if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
+           // MSIE
+            tInstalled = true;
+        }
+
+        if (navigator.appVersion.indexOf("MSIE") != -1 &&
+            navigator.appVersion.toLowerCase().indexOf("win") != -1)
+        {
+            tInstalled = detectUnityWebPlayerActiveX();
+        }
+        else if (navigator.mimeTypes && navigator.mimeTypes["application/vnd.unity"])
+        {
+            if (navigator.mimeTypes["application/vnd.unity"].enabledPlugin &&
+                navigator.plugins && navigator.plugins["Unity Player"])
+            {
+                tInstalled = true;
+            }
+        }
+        return tInstalled;
+    }
+</script>
+
 <body class="no-sidebar">
     {% include 'header.html' %}
 
