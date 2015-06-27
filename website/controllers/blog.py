@@ -50,6 +50,10 @@ def view_post(slug):
     post = None
     if slug:
         post = get_post_by_slug(slug)
+
+    if not post:
+        abort(404)
+
     assert type(post) is Post
 
     if (post.publish_date > date.today() or post.is_draft) and not current_user.is_authenticated():

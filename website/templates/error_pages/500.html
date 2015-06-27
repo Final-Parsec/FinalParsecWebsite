@@ -1,10 +1,36 @@
 {% extends "main_layout.html" %}
-{% block body %}
+{% block content %}
 
-<div class="pure-g-r">
-    <div class="pure-u-1">
-        500 Error
-    </div>
-</div>
+    <body class="no-sidebar">
+		{% include 'header.html' %}
 
-{% endblock body %}
+		<!-- Main -->
+			<div id="main-wrapper">
+				<div class="container">
+
+					<!-- Content -->
+						<article class="box post">
+							<header>
+								<h2>500 Error</h2>
+								<p>An error occurred while processing your request.</p>
+							</header>
+						</article>
+
+				</div>
+			</div>
+
+		<!-- Footer -->
+        <div id="footer-wrapper">
+            <section id="footer" class="container">
+                <div class="row">
+                    {% set about_width = '8u' %}
+                    {% include 'about.html' %}
+                </div>
+
+                {% include 'copyright_row.html' %}
+            </section>
+        </div>
+
+	</body>
+
+{% endblock content %}
