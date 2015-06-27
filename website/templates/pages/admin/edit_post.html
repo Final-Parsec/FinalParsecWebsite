@@ -20,6 +20,42 @@
 
                 <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Save Changes</button>
             </form>
+
+            {% if post.id > 0 %}
+                <hr>
+                <h4>Manage Tags</h4>
+                <div class="pure-alert pure-alert-warning">
+                    Adding and removing tags will cause a new request.<br>
+                    Make sure you save your changes above before attempting to manage tags!
+                </div>
+                <p>
+                    Convention for tags is all lowercase with hyphens between words.<br>
+                    For example: snakes, space-snakes, aurora-tower-defense, etc.
+                </p>
+                <p>
+                    It's better to use existing tags than to make new ones.<br>
+                    This will ensure all posts have related posts showing up at the bottom of their page.
+                </p>
+                <p>
+                    In order to associate a post with a game, use one of the following tags:
+                </p>
+                <ul>
+                    {% for game_tag in g.game_tags %}
+                        <li>{{ game_tag.name }}</li>
+                    {% endfor %}
+                </ul>
+                <form action="{{ url_for('add_tag_to_post') }}" method="post" class="pure-form">
+                    <input type="text" class="pure-input-1-2" placeholder="Tag Name" name="tag_name" required>
+                    <input type="hidden" name="post_id" value="{{ post.id }}">
+                    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Add Tag</button>
+                </form>
+
+                <p>
+                    {% for tag in post.tags %}
+                        {{ tag.tag.name }} (<a href="{{ url_for('remove_tag_from_post', post_tag_id=tag.id) }}">Disassociate</a>)<br>
+                    {% endfor %}
+                </p>
+            {% endif %}
         </div>
     </div>
 

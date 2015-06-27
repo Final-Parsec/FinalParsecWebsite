@@ -1,5 +1,7 @@
 from database import save_changes
 from database.post import get_posts, Post
+from database.post_tag import PostTag
+from database.tag import get_tag_by_name, Tag
 from database.user import User
 from datetime import date
 from flask import g, render_template, request, redirect, url_for
@@ -12,6 +14,30 @@ from wtforms import HiddenField
 
 class LoginForm(Form):
     next = HiddenField('next')
+
+
+@final_parsec_website.route('/saxophone_baby_mattress/post_tag/add/', methods=['POST'])
+@login_required
+def add_tag_to_post():
+    post_id = request.form.get('post_id')
+    tag_name = request.form.get('tag_name')
+
+    existing_tag = get_tag_by_name(tag_name)
+
+    if existing_tag:
+        tag_id_to_associate = existing_tag.id
+    else:
+        new_tag = Tag()
+        new_tag.name = tag_name
+        new_tag.add()
+        tag_id_to_associate = new_tag.id
+
+    post_tag = PostTag()
+    post_tag.post_id = post_id
+    post_tag.tag_id = tag_id_to_associate
+    post_tag.add()
+
+    return redirect(url_for('edit_post', post_id=post_id))
 
 
 @final_parsec_website.route('/saxophone_baby_mattress/password/', methods=['GET', 'POST'])
@@ -112,3 +138,12 @@ def post_list():
     """
     posts = get_posts(include_unpublished_posts=True)
     return render_template('pages/admin/post_list.html', posts=posts)
+
+
+@final_parsec_website.route('/saxophone_baby_mattress/post_tag/disassociate/<post_tag_id>/')
+@login_required
+def remove_tag_from_post(post_tag_id):
+    post_id = PostTag.query.get(post_tag_id).post_id
+    PostTag.query.filter_by(id=post_tag_id).delete()
+    save_changes()
+    return redirect(url_for('edit_post', post_id=post_id))
