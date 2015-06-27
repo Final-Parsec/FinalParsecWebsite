@@ -1,11 +1,11 @@
 <div class="6u">
     <section class="box">
         <a href="{{ url_for('view_post', slug=post.slug) }}" class="image featured">
-            <img src="{{ url_for('static', filename='images/post-preview/' + post.slug  + '.jpg') }}" alt="" onerror="this.parentNode.parentNode.removeChild(this.parentNode);" />
+            <img src="{{ url_for('view_post_preview', slug=post.slug) }}" alt="" onerror="this.parentNode.parentNode.removeChild(this.parentNode);" />
         </a>
         <header>
             <h3>{{ post.title }}</h3>
-            <p>{{ post.publish_date|pretty_date }} | <span style="font-size: smaller;">{{ post.publish_date }}</p>
+            <p>{{ post.publish_date|pretty_date }} | <span style="font-size: smaller;">{{ post.publish_date }}</span></p>
         </header>
         <p>{{ post.summary }}</p>
         <footer>

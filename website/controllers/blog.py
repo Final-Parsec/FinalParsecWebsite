@@ -1,7 +1,7 @@
 from database.post import get_post_by_slug, get_posts, get_posts_with_tag, get_related_posts, Post
 from database.user import lookup_user_account_by_name
 from datetime import date
-from flask import abort, Markup, render_template
+from flask import abort, Markup, render_template, send_from_directory
 from flask.ext.login import current_user
 from markdown import markdown
 from website import final_parsec_website
@@ -69,3 +69,15 @@ def view_post(slug):
                            author_user_account=author_user_account,
                            post=post,
                            related_posts=related_posts)
+
+
+@final_parsec_website.route('/p/header/<slug>/')
+def view_post_header(slug):
+    filename = slug + '.jpg'
+    return send_from_directory(final_parsec_website.config['POST_HEADER_DIRECTORY'], filename)
+
+
+@final_parsec_website.route('/p/preview/<slug>/')
+def view_post_preview(slug):
+    filename = slug + '.jpg'
+    return send_from_directory(final_parsec_website.config['POST_PREVIEW_DIRECTORY'], filename)
