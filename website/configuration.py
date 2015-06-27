@@ -6,6 +6,9 @@ class Config(object):
     CSRF_ENABLED = True
     MC_KEY = 'mc_key'
 
+    POST_HEADER_DIRECTORY = '/path/to/post-header/'
+    POST_PREVIEW_DIRECTORY = '/path/to/post-preview/'
+
     #Database Connection Strings
     SQLALCHEMY_DATABASE_URI = '{protocol}://{user}:{password}@{host}/{database}?charset=utf8'.format(
         protocol='mysql+pymysql',
