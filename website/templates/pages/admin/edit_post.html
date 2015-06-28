@@ -23,11 +23,13 @@
 
             {% if post.id > 0 %}
                 <hr>
-                <h4>Manage Tags</h4>
                 <div class="pure-alert pure-alert-warning">
-                    Adding and removing tags will cause a new request.<br>
-                    Make sure you save your changes above before attempting to manage tags!
+                    Adding tags, removing tags, and uploading files will cause a new request.<br>
+                    Make sure you save your changes above before attempting to use the sections below!
                 </div>
+
+                <hr>
+                <h4>Manage Tags</h4>
                 <p>
                     Convention for tags is all lowercase with hyphens between words.<br>
                     For example: snakes, space-snakes, aurora-tower-defense, etc.
@@ -55,6 +57,40 @@
                         {{ tag.tag.name }} (<a href="{{ url_for('remove_tag_from_post', post_tag_id=tag.id) }}">Disassociate</a>)<br>
                     {% endfor %}
                 </p>
+
+                <hr>
+                <h4>Post Preview</h4>
+                <img src="{{ url_for('view_post_preview', slug=post.slug) }}" />
+
+                <div class="pure-alert pure-alert-warning">
+                    Preview image should have 'jpg' extension and be 580x272 in dimension.<br>
+                    It's a good rule of thumb to keep these images as small as possible (150 KB or less).<br>
+                    Heed this warning or the blog will be slow and ugly!
+                </div>
+
+                <form action="{{ url_for('upload_post_preview') }}" method=post enctype=multipart/form-data>
+                    <input type="hidden" name="post_id" value="{{ post.id }}">
+                    <input type="hidden" name="slug" value="{{ post.slug }}">
+                    <input type=file name=file>
+                    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Upload</button>
+                </form>
+
+                <hr>
+                <h4>Post Header</h4>
+                <img src="{{ url_for('view_post_header', slug=post.slug) }}" />
+
+                <div class="pure-alert pure-alert-warning">
+                    Header image should have 'jpg' extension and be 1200x444 in dimension.<br>
+                    It's a good rule of thumb to keep these images as small as possible (300 KB or less).<br>
+                    Heed this warning or the blog will be slow and ugly!
+                </div>
+
+                <form action="{{ url_for('upload_post_header') }}" method=post enctype=multipart/form-data>
+                    <input type="hidden" name="post_id" value="{{ post.id }}">
+                    <input type="hidden" name="slug" value="{{ post.slug }}">
+                    <input type=file name=file>
+                    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Upload</button>
+                </form>
             {% endif %}
         </div>
     </div>

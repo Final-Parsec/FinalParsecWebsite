@@ -4,11 +4,13 @@ from database.post_tag import PostTag
 from database.tag import get_tag_by_name, Tag
 from database.user import User
 from datetime import date
-from flask import g, render_template, request, redirect, url_for
+from flask import abort, g, render_template, request, redirect, url_for
 from flask.ext.login import login_required, login_user, logout_user
 from flask.ext.wtf import Form
+from os.path import join
 from website import final_parsec_website
 from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.utils import secure_filename
 from wtforms import HiddenField
 
 
@@ -38,6 +40,10 @@ def add_tag_to_post():
     post_tag.add()
 
     return redirect(url_for('edit_post', post_id=post_id))
+
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1] in ['jpg']
 
 
 @final_parsec_website.route('/saxophone_baby_mattress/password/', methods=['GET', 'POST'])
@@ -78,13 +84,13 @@ def edit_post(post_id):
         summary = request.form.get('summary', None)
         title = request.form.get('title', None)
 
-        post_to_edit = Post()  # Make a new post by default.
-
         if post_id > 0:
             # Retrieve the post if we're referencing an existing one.
             post_to_edit = Post.get(post_id)
+        else:
+            post_to_edit = Post()
+            post_to_edit.author_id = g.user.id
 
-        post_to_edit.author_id = g.user.id
         post_to_edit.content = content
         post_to_edit.is_draft = is_draft
         post_to_edit.publish_date = publish_date
@@ -138,6 +144,36 @@ def post_list():
     """
     posts = get_posts(include_unpublished_posts=True)
     return render_template('pages/admin/post_list.html', posts=posts)
+
+
+@final_parsec_website.route('/saxophone_baby_mattress/post/upload_header/', methods=['POST'])
+@login_required
+def upload_post_header():
+    post_id = request.form.get('post_id')
+    slug = request.form.get('slug')
+    uploaded_file = request.files['file']
+
+    if uploaded_file and allowed_file(uploaded_file.filename):
+        filename = secure_filename(slug + '.jpg')
+        uploaded_file.save(join(final_parsec_website.config['POST_HEADER_DIRECTORY'], filename))
+        return redirect(url_for('edit_post', post_id=post_id))
+
+    abort(500)
+
+
+@final_parsec_website.route('/saxophone_baby_mattress/post/upload_preview/', methods=['POST'])
+@login_required
+def upload_post_preview():
+    post_id = request.form.get('post_id')
+    slug = request.form.get('slug')
+    uploaded_file = request.files['file']
+
+    if uploaded_file and allowed_file(uploaded_file.filename):
+        filename = secure_filename(slug + '.jpg')
+        uploaded_file.save(join(final_parsec_website.config['POST_PREVIEW_DIRECTORY'], filename))
+        return redirect(url_for('edit_post', post_id=post_id))
+
+    abort(500)
 
 
 @final_parsec_website.route('/saxophone_baby_mattress/post_tag/disassociate/<post_tag_id>/')
