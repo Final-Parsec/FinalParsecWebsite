@@ -34,7 +34,6 @@ def blog():
 
 @final_parsec_website.route('/')
 def index():
-    # todo: games
     posts = get_posts()
     return render_template('/pages/blog/index.html', posts=posts)
 
