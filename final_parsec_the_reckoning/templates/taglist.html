@@ -1,7 +1,0 @@
-{% if article.tags %}
-    <p>
-        {% for tag in article.tags %}
-            <a href="{{ SITEURL }}/{{ tag.url }}" class="tag" style="color:black; text-decoration: none;"><i class="fa fa-tag"></i> {{ tag }}</a><br>
-        {% endfor %}
-    </p>
-{% endif %}
