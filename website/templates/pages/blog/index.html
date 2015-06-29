@@ -131,7 +131,7 @@
                                                 {% if loop.index <= 7 %}
                                                     <li>
                                                         <span class="date">{{ post.publish_date.strftime('%b') }} <strong>{{ post.publish_date.strftime('%d') }}</strong></span>
-                                                        <h3><a href="{{ post.slug }}">{{ post.title }}</a></h3>
+                                                        <h3><a href="{{ url_for('view_post', slug=post.slug) }}">{{ post.title }}</a></h3>
                                                         <p>{{ post.summary }}</p>
                                                     </li>
                                                 {% endif %}
