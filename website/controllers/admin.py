@@ -65,7 +65,6 @@ def change_password():
         else:
             user.password_hash = generate_password_hash(new_password)
             save_changes()
-            return render_template('/pages/user_account/change_password_success.html')
 
     return render_template('/pages/admin/change_password.html', error_message=error_message)
 
