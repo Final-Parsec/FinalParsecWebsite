@@ -153,4 +153,65 @@
             </div>
         </div>
     </div>
+
+    <script type="application/ld+json">
+        {
+          "@context":"http://schema.org",
+          "@type":"Organization",
+          "url":"http://finalparsec.com",
+          "logo":"http://finalparsec.com/static/images/bw_horizontal_logo_trans.png",
+          "name":"Final Parsec",
+          "founder":[
+            {
+                "@type":"Person",
+                "name":"Matt Bauer"
+            },
+            {
+                "@type":"Person",
+                "name":"Baer Bradford"
+            },
+            {
+                "@type":"Person",
+                "name":"TJ Brosnan"
+            }
+          ]
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+          "@context":"http://schema.org",
+          "@type":"VideoGame",
+          "name":"Aurora TD",
+          "url":"http://finalparsec.com/g/tower-defense",
+          "sameas":[
+            "https://play.google.com/store/apps/details?id=com.finalparsec.towerdefence",
+            "https://twitter.com/Final_Parsec",
+            "https://www.youtube.com/c/FinalParsec"],
+          "description":"An evil spirit is attempting to pillage your homeland. Fight back by strategically placing totem poles with magical abilities! Invoke the power of the spirits!",
+          "genre":"Tower defense",
+          "contributor":[
+            {
+              "@type":"Role",
+              "roleName":"Developer",
+              "contributor":{
+                "@type":"Organization",
+                "name":"Final Parsec"
+              }
+            }
+          ],
+          "operatingSystem":"ANDROID",
+          "applicationCategory": "http://schema.org/GameApplication",
+          "offers":{
+            "@type": "Offer",
+            "price": "1.99",
+            "priceCurrency": "USD"
+          },
+          "aggregateRating":{
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "ratingCount": "6"
+          }
+        }
+    </script>
 {% endblock content %}
