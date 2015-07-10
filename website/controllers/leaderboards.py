@@ -1,13 +1,13 @@
 from database.score import Score
-from flask import jsonify, request
+from flask import jsonify, render_template, request
 from website import final_parsec_website
 
 
 @final_parsec_website.route('/leaderboards/')
 def view_leaderboards():
     # todo: sweet ajaxy page where you can view all leaderboards and rankings
-    from website.controllers.blog import index
-    return index()
+    return render_template('/pages/leaderboards/view.html')
+
 
 
 @final_parsec_website.route('/scores/<leaderboard_name>', methods=['GET', 'POST'])
