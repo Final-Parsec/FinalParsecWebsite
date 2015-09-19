@@ -27,8 +27,8 @@
                                     <header>
                                         <h2>Map Type</h2>
                                     </header>
-                                    <select style="width: 50%;">
-                                        <option value="Obstacle">Obstacle</option>
+                                    <select id="map-type-select" style="width: 50%;">
+                                        <option value="Obstacles">Obstacles</option>
                                         <option value="Open">Open</option>
                                     </select>
                                 </section>
@@ -39,7 +39,7 @@
                                     <header>
                                         <h2>Difficulty</h2>
                                     </header>
-                                    <select style="width: 50%;">
+                                    <select id="difficulty-select" style="width: 50%;">
                                         <option value="Hard">Hard</option>
                                         <option value="Medium">Medium</option>
                                         <option value="Easy">Easy</option>
@@ -52,7 +52,7 @@
                                     <header>
                                         <h2># of Waves</h2>
                                     </header>
-                                    <select style="width: 50%;">
+                                    <select id="number-of-waves-select" style="width: 50%;">
                                         <option value="40">40</option>
                                         <option value="80">80</option>
                                         <option value="Endless">Endless</option>
@@ -61,52 +61,10 @@
                             </div>
                         </div>
                         <footer style="text-align: center;">
-                            <h3>Top Ten</h3>
-                            <table style="width: 60%; margin: 0 auto;">
-                                <tr>
-                                    <td style="text-align: left;">Baer</td>
-                                    <td>6353</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: left;">Rachel</td>
-                                    <td>3245</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: left;">Rem Rem</td>
-                                    <td>2334</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: left;">Laika</td>
-                                    <td>2256</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: left;">Edward Baerington Bradford</td>
-                                    <td>1765</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: left;">Meleese Jenkins</td>
-                                    <td>1309</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: left;">Laika</td>
-                                    <td>889</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: left;">ASS</td>
-                                    <td>667</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: left;">Baer</td>
-                                    <td>503</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: left;">Anne</td>
-                                    <td>443</td>
-                                </tr>
+                            <h3>Top Competitors</h3>
+                            <table id="leaderboard" style="width: 60%; margin: 0 auto;">
+                                <tbody></tbody>
                             </table>
-                            <ul class="actions">
-                                <li><a href="{{ url_for('landing_page', game_tag_name='legacy-earth') }}" class="button big">View More</a></li>
-                            </ul>
                         </footer>
                     </section>
 
@@ -114,4 +72,31 @@
         </div>
     {% block content_header %}{% endblock %}
     </div>
+
+    <script>
+        function updateLeaderboard() {
+            var game = "Aurora TD";
+            var mapType = $("#map-type-select option:selected").text();
+            var difficulty = $("#difficulty-select option:selected").text();
+            var numberOfWaves = $("#number-of-waves-select option:selected").text();
+            var leaderboardName = game + ' ' + mapType + ' '  + difficulty + ' ' + numberOfWaves;
+
+            $.getJSON('/scores/' + leaderboardName + '?limit=10', function(leaderboard) {
+                $('#leaderboard tr').remove();
+
+                $(leaderboard.competitors).each(function (){
+                    $('#leaderboard > tbody:last-child').append('<tr><td style="text-align: left;">' + this.player_name + '</td><td>' + this.score + '</td></tr>');
+
+                    console.log(this.player_name);
+                })
+            })
+        }
+
+        $(updateLeaderboard);
+
+        $(function() {
+           $('select').change(updateLeaderboard);
+        });
+
+    </script>
 {% endblock content %}

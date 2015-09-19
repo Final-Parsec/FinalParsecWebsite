@@ -9,7 +9,6 @@ def view_leaderboards():
     return render_template('/pages/leaderboards/view.html')
 
 
-
 @final_parsec_website.route('/scores/<leaderboard_name>', methods=['GET', 'POST'])
 def leaderboard_scores(leaderboard_name):
     limit = request.args.get('limit', None)
