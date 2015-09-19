@@ -8,7 +8,9 @@
 <section class="box">
     <a href="{{ url_for('author', author_name=author_user_account.name) }}" class="image featured"><img src="{{ url_for('static', filename=('images/author-portrait/' + author_user_account.name + '.jpg')) }}" alt="" /></a>
     <header>
-        <h3>{{ author_user_account.name }}</h3>
+        <a href="{{ url_for('author', author_name=author_user_account.name) }}" style="color: #252122; text-decoration: none;">
+            <h3>{{ author_user_account.name }}</h3>
+        </a>
     </header>
     <p>
         {{ author_user_account.catch_phrase }}
