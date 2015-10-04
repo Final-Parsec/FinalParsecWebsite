@@ -78,7 +78,7 @@
                 window.scrollTo(0, 0);
                 $('.game_container > div').filter(':visible').fadeOut(750, function() {
                     var u = new UnityObject2();
-                    u.initPlugin(jQuery(".act_one > #unityPlayer")[0], "{{ url_for('static', filename='unity/aurora_td_1_3_0.unity3d') }}");
+                    u.initPlugin(jQuery(".act_one > #unityPlayer")[0], "{{ url_for('static', filename='unity/aurora_td_1_3_1.unity3d') }}");
 
                     $('.act_one').fadeIn();
                 });
@@ -89,7 +89,7 @@
 
             $('#act_one_restart').click(function() {
                var u = new UnityObject2();
-                u.initPlugin(jQuery(".act_one > #unityPlayer")[0], "{{ url_for('static', filename='unity/aurora_td_1_3_0.unity3d') }}");
+                u.initPlugin(jQuery(".act_one > #unityPlayer")[0], "{{ url_for('static', filename='unity/aurora_td_1_3_1.unity3d') }}");
                 return false;
             });
 
