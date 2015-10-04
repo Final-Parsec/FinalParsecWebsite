@@ -5,7 +5,6 @@ from website import final_parsec_website
 
 @final_parsec_website.route('/leaderboards/')
 def view_leaderboards():
-    # todo: sweet ajaxy page where you can view all leaderboards and rankings
     return render_template('/pages/leaderboards/view.html')
 
 
